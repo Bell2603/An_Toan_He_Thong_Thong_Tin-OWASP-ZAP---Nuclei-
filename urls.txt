@@ -1,0 +1,6 @@
+http://localhost:4280/vulnerabilities/sqli/
+http://localhost:4280/vulnerabilities/xss_r/
+http://localhost:4280/vulnerabilities/xss_s/
+http://localhost:4280/vulnerabilities/fi/
+http://localhost:4280/vulnerabilities/upload/
+http://localhost:4280/vulnerabilities/exec/

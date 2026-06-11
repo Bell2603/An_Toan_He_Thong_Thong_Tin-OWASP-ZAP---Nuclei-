@@ -1,0 +1,24 @@
+[cookies-without-httponly] [javascript] [info] localhost:4280 ["PHPSESSID"]
+[cookies-without-secure] [javascript] [info] localhost:4280 ["PHPSESSID"]
+[waf-detect:apachegeneric] [http] [info] http://localhost:4280
+[snmpv3-detect] [javascript] [info] localhost:4280 ["Enterprise: unknown"]
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:missing-content-type] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:content-security-policy] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:permissions-policy] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:x-frame-options] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:referrer-policy] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:strict-transport-security] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:x-content-type-options] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:clear-site-data] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] http://localhost:4280/login.php
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] http://localhost:4280/login.php
+[fingerprinthub-web-fingerprints:dvwa] [http] [info] http://localhost:4280/login.php
+[tech-detect:php] [http] [info] http://localhost:4280/login.php
+[missing-cookie-samesite-strict] [http] [info] http://localhost:4280 ["PHPSESSID=3c7dfcb65ec1551c6b14c62464d47b72; path=/"]
+[tech-detect:php] [http] [info] http://localhost:4280
+[robots-txt] [http] [info] http://localhost:4280/robots.txt
+[robots-txt-endpoint] [http] [info] http://localhost:4280/robots.txt
+[readme-md] [http] [info] http://localhost:4280/README.md
+[caa-fingerprint] [dns] [info] localhost

